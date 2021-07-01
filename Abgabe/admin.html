@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin</title>
+
+    <nav class="menu">
+        <a class = "eins" id = "Admin" href="admin.html">Admin</a>
+        <a id = "Score" href="score.html">Score</a>
+        <a id = "home" href="index.html">Home</a>
+    </nav>  
+
+</head>
+<body>
+
+    <h1>Admin</h1>
+    <div id="eingabeURL">
+    <form name = "formular" id="Formular">                                              
+        <label id="url" >Eingabe der URL des Bilds: </label>
+        <input type="text" id="URL" name="bildurl">
+    </form>
+
+    <button id="einfuegen" type="button">Hinzufügen</button>
+    <button id="loeschen" type="button">Löschen</button>
+    </div>
+    <script src="memory.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>

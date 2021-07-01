@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@types/mongodb": "^3.6.18",
+    "@types/node": "^15.6.0",
+    "mongodb": "^3.6.9"
+  },
+  "name": "aufgaben",
+  "description": "Dieses Repository beinhaltet die Lösung zur den Praktikumsaufgaben von Lena Nerz.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Abgabe/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LenaNscott/GiS_SoSe_2021.git"
+  },
+  "author": "Lena Nerz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LenaNscott/GiS_SoSe_2021/issues"
+  },
+  "homepage": "https://github.com/LenaNscott/GiS_SoSe_2021#readme"
+}
