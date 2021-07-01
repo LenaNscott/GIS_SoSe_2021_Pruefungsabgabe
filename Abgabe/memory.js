@@ -10,8 +10,6 @@ async function urlHinzufuegen() {
     let query = new URLSearchParams(formData);
     let response = await fetch(url + "?" + query.toString());
     let responseText = await response.text();
-    responseText = JSON.parse(responseText);
-    console.log(responseText);
     return responseText;
 }
 async function urlHolen() {
@@ -20,6 +18,8 @@ async function urlHolen() {
     let query = new URLSearchParams(formData);
     let response = await fetch(url + "?" + query.toString());
     let responseText = await response.text();
-    return responseText;
+    let geschnittenerPathname = responseText.slice(0, responseText.lastIndexOf("url:"));
+    console.log(geschnittenerPathname);
+    return (geschnittenerPathname);
 }
 //# sourceMappingURL=memory.js.map

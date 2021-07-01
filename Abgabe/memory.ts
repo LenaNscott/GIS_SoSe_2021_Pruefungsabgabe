@@ -1,4 +1,6 @@
-
+interface Url {
+    [type: string]: string | string[];
+ }
 
 function seitenWechseln(): void {
     let pname: string = window.location.pathname;
@@ -13,8 +15,6 @@ async function urlHinzufuegen(): Promise<string> {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     let response: Response = await fetch(url + "?" + query.toString());
     let responseText: string = await response.text();
-    responseText = JSON.parse(responseText);
-    console.log(responseText);
     return responseText;   
 }
 
@@ -24,6 +24,7 @@ async function urlHolen(): Promise<string> {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     let response: Response = await fetch(url + "?" + query.toString());
     let responseText: string = await response.text();
-    
-    return responseText;  
+    let geschnittenerPathname: string = responseText.slice(0, responseText.lastIndexOf("url:"));
+    console.log(geschnittenerPathname);
+    return (geschnittenerPathname);  
 }

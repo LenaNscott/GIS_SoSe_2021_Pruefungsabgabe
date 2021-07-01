@@ -6,9 +6,7 @@ import * as Mongo from "mongodb";
 export namespace P_3_1Server { 
     let eingabe: Mongo.Collection;
    
-    interface Url {
-       [type: string]: string | string[];
-    }
+   
 
     console.log("Starting server"); 
     let port: number = Number(process.env.PORT); 
