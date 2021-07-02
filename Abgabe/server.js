@@ -33,22 +33,20 @@ var P_3_1Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (url.pathname == "/holen") {
-            let ausgabe = "";
-            let cursor = await eingabe.find();
-            while (await cursor.hasNext()) {
-                ausgabe += JSON.stringify(await cursor.next());
-            }
-            _response.write(ausgabe);
+            let ausgabe = JSON.stringify(await eingabe.find().toArray());
+            //let cursor: Mongo.Cursor = await eingabe.find();
+            //while (await cursor.hasNext()) {
+            //    ausgabe += JSON.stringify(await cursor.next());
+            //}
+            console.log(ausgabe);
+            _response.write(String(ausgabe));
         }
         else if (url.pathname == "/abschicken") {
             let jsonString = JSON.stringify(url.query);
             _response.write(jsonString);
-            formularEingabe(url.query);
+            eingabe.insert(url.query);
         }
         _response.end();
-    }
-    function formularEingabe(_url) {
-        eingabe.insert(_url);
     }
 })(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));
 //# sourceMappingURL=server.js.map

@@ -1,9 +1,21 @@
 "use strict";
 urlHolen();
 let start = document.getElementById("spielstart");
-start.addEventListener("click", spielStarten);
-function spielStarten() {
+start.addEventListener("click", function () {
+    spielStarten("timer", "10");
+});
+function spielStarten(id, _string) {
     start.remove();
+    document.getElementById(id).innerHTML = _string;
+    let stoppen = document.getElementById("stop");
+    //stoppen.addEventListener("click", function());  
+    let stoppuhr = (function () {
+        let stop = 1;
+        let hrs = 0;
+        let mins = 0;
+        let secs = 0;
+        let msecs = 0;
+    });
 }
 for (let i = 1; i <= 20; i++) {
     let karte = document.getElementById("nr" + [i]);
@@ -18,10 +30,9 @@ function karteAnzeigen() {
     bild1.style.width = "300px";
     bild1.style.left = "575px";
     bild1.style.top = "275px";
-    bild1.src = "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG";
     document.getElementById("body").appendChild(bild1);
 }
-function bilder(_bild) {
+async function bilder(_bild) {
     switch (_bild.id) {
         case "nr1":
             bild1.id = "bild1";

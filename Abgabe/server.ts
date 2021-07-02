@@ -6,7 +6,9 @@ import * as Mongo from "mongodb";
 export namespace P_3_1Server { 
     let eingabe: Mongo.Collection;
    
-   
+    interface Url {
+        [type: string]: string | string[];
+     }
 
     console.log("Starting server"); 
     let port: number = Number(process.env.PORT); 
@@ -42,27 +44,24 @@ export namespace P_3_1Server {
         _response.setHeader("content-type", "text/html; charset=utf-8"); 
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (url.pathname == "/holen") {
-            let ausgabe: string = "";
-            let cursor: Mongo.Cursor = await eingabe.find();
-            while (await cursor.hasNext()) {
-                ausgabe += JSON.stringify(await cursor.next());
-            }
-    
-            _response.write(ausgabe);
+            let ausgabe: string = JSON.stringify(await eingabe.find().toArray());
+            //let cursor: Mongo.Cursor = await eingabe.find();
+            //while (await cursor.hasNext()) {
+            //    ausgabe += JSON.stringify(await cursor.next());
+            //}
+            
+            console.log(ausgabe);   
+            _response.write(String(ausgabe));
         }
 
         else if (url.pathname == "/abschicken") {
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
-            formularEingabe(url.query);
+            eingabe.insert(url.query);
         }
              
         _response.end(); 
 
-    }
-
-    function formularEingabe (_url: Url): void {
-        eingabe.insert(_url);
     }
 
 }

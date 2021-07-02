@@ -1,12 +1,30 @@
+
+
 urlHolen();
 
-let start: HTMLElement = document.getElementById("spielstart");
-start.addEventListener("click", spielStarten);
 
-function spielStarten(): void {
+let start: HTMLElement = document.getElementById("spielstart");
+start.addEventListener("click", function(): void {
+    spielStarten("timer", "10");
+});
+   
+
+function spielStarten(id: string, _string: string): void {
     start.remove ();
+    document.getElementById(id).innerHTML = _string;
+    let stoppen: HTMLElement = document.getElementById("stop");
+    //stoppen.addEventListener("click", function());  
+    let stoppuhr = (function() {
+        let stop: number = 1;
+        let hrs: number = 0;
+        let mins: number = 0;
+        let secs: number = 0;
+        let msecs: number = 0;
+    })
     
-}
+} 
+
+
 
 
 for (let i: number = 1; i <= 20; i++) {
@@ -26,11 +44,11 @@ function karteAnzeigen(): void {
     bild1.style.width = "300px";
     bild1.style.left = "575px";
     bild1.style.top = "275px";
-    bild1.src = "https://upload.wikimedia.org/wikipedia/commons/0/0f/Grosser_Panda.JPG";
     document.getElementById("body").appendChild(bild1);
 }
 
-function bilder(_bild: HTMLElement): void {
+async function bilder(_bild: HTMLElement): Promise<void> {
+    
     switch (_bild.id) {
         case "nr1":
             bild1.id = "bild1";
