@@ -16,6 +16,7 @@ async function urlHolen() {
     console.log(responseText);
     bilderArray = JSON.parse(responseText);
     console.log(bilderArray);
+    kartenVerteilen(bilderArray);
 }
 async function versenden(url) {
     let formData = new FormData(document.forms[0]);

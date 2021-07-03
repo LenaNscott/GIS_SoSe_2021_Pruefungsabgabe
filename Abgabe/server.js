@@ -34,11 +34,7 @@ var P_3_1Server;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (url.pathname == "/holen") {
             let ausgabe = JSON.stringify(await eingabe.find().toArray());
-            //let cursor: Mongo.Cursor = await eingabe.find();
-            //while (await cursor.hasNext()) {
-            //    ausgabe += JSON.stringify(await cursor.next());
-            //}
-            console.log(ausgabe);
+            //console.log(ausgabe);   
             _response.write(String(ausgabe));
         }
         else if (url.pathname == "/abschicken") {

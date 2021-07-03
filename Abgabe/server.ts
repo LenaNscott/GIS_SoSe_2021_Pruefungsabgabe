@@ -5,10 +5,6 @@ import * as Mongo from "mongodb";
 
 export namespace P_3_1Server { 
     let eingabe: Mongo.Collection;
-   
-    interface Url {
-        [type: string]: string | string[];
-     }
 
     console.log("Starting server"); 
     let port: number = Number(process.env.PORT); 
@@ -45,12 +41,8 @@ export namespace P_3_1Server {
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (url.pathname == "/holen") {
             let ausgabe: string = JSON.stringify(await eingabe.find().toArray());
-            //let cursor: Mongo.Cursor = await eingabe.find();
-            //while (await cursor.hasNext()) {
-            //    ausgabe += JSON.stringify(await cursor.next());
-            //}
             
-            console.log(ausgabe);   
+            //console.log(ausgabe);   
             _response.write(String(ausgabe));
         }
 

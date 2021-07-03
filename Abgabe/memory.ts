@@ -26,7 +26,9 @@ async function urlHolen(): Promise<void> {
     console.log(responseText);
     bilderArray = JSON.parse(responseText);
     console.log(bilderArray);
+    kartenVerteilen(bilderArray);
 }
+
 
 async function versenden(url: string): Promise<string> {
     

@@ -164,6 +164,7 @@ img {
     border: 10px;
     left: 400px;
     top: 170px;
+    
 }
 
 #nr2 {
@@ -757,6 +758,25 @@ img {
         height: 120px;
         left: 920px;
         top: 560px;
+    }
+}
+
+#move {
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-name: move;
+}
+
+@keyframes move {
+    from {
+        width: 120px;
+        height: 120px;
+    }
+
+    to {
+        width: 0px;
+        height: 0px;
     }
 }
 
