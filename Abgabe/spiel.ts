@@ -1,23 +1,33 @@
 
 urlHolen();
 let spielende: boolean = false;
-let gefundenePaara: number = 0;
+let gefundenePaare: number = 0;
 let gemischteKarten: bild[];
-let bild1: HTMLImageElement = document.createElement("img");
-let bild2: HTMLImageElement = document.createElement("img");
-let i: HTMLImageElement = document.createElement("img");
-let start: HTMLElement = document.getElementById("spielstart");
-start.addEventListener("click", spielStarten);
+//let start: HTMLElement = document.getElementById("spielstart");
 
-/* start.addEventListener("click", function(): void {
-    spielStarten("timer", "10");
-}); */
+let bild1: HTMLImageElement = document.createElement("img");
+bild1.style.position = "absolute";
+bild1.style.height = "300px";
+bild1.style.width = "300px";
+bild1.style.left = "575px";
+bild1.style.top = "275px";
+
+let bild2: HTMLImageElement = document.createElement("img");
+bild2.style.position = "absolute";
+bild2.style.height = "300px";
+bild2.style.width = "300px";
+bild2.style.left = "575px";
+bild2.style.top = "275px";
+
+let klickenVerarbeitet: boolean = true;
+
 
 function kartenVerteilen(_bilder: bild[]): void {
     let ausgewaehlteKarten: bild[] = [];
     let bildUrlId: bild [] = _bilder;
     for (let i: number = 0; i < 10; i++) {
-        let zahl: bild = bildUrlId[Math.floor(Math.random() * bildUrlId.length)];
+       // let zahl: bild = bildUrlId[Math.floor(Math.random() * bildUrlId.length)];
+        let zahl: bild = bildUrlId[9 - i]; // nur zum testen
         ausgewaehlteKarten.splice(0, 0, zahl);
         let z: number = bildUrlId.indexOf(zahl);
         bildUrlId.splice(z, 1);
@@ -29,6 +39,10 @@ function kartenVerteilen(_bilder: bild[]): void {
     
 }
 
+function Sleep(milliseconds: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+   }
+/*
 function spielStarten(): void {
     start.remove ();
     //document.getElementById(id).innerHTML = _string;
@@ -43,186 +57,154 @@ function spielStarten(): void {
     });
     
 } 
-
-while (spielende == false) {
-
+*/
 for (let i: number = 1; i <= 20; i++) {
-    let karte: HTMLElement = document.getElementById("nr" + [i]);
-    karte.addEventListener("click" , function(): void {
-        bilder(karte);
-    });   
-}
-
-
+        let karte: HTMLElement = document.getElementById("nr" + [i]);
+        karte.addEventListener("click" , function(): void {
+        spielKarten(karte);
+        });   
+    }
 let erste: boolean = false;
-let zweite: boolean = false;
-let _id1: string;
-let _id2: string;
+let karteZwei: boolean = false;
 
-let _id1Nr: number;
-let _id2Nr: number;
-
-function karteAnzeigen(_id: number): void {
+async function spielKarten(_karte: HTMLElement): Promise<void> {
     
-    if (erste == false) {
-        for (let i: number = 1; i <= 20; i++) {
-            let karte: HTMLElement = document.getElementById("nr" + [i]);
-            karte.removeEventListener("click" , function(): void {
-                bilder(karte);
-            });   
-        }
-        bild1.style.position = "absolute";
-        bild1.style.height = "300px";
-        bild1.style.width = "300px";
-        bild1.style.left = "575px";
-        bild1.style.top = "275px";
-        bild1.src = i.src;
-        bild1.id = i.id;
-        document.getElementById("body").appendChild(bild1); 
-        _id1 = "nr" +  _id;
-        _id1Nr = _id;
-        erste = true;
-        //zweite = false;
-    }
+    if (klickenVerarbeitet == true) {
 
-    else if (erste == true) {
-        bild2.style.position = "absolute";
-        bild2.style.height = "300px";
-        bild2.style.width = "300px";
-        bild2.style.left = "575px";
-        bild2.style.top = "275px";
-        bild2.src = i.src;
-        bild2.id = i.id;
-        document.getElementById("body").appendChild(bild2); 
-        _id2 = "nr" + _id;
-        _id2Nr = _id;
-        erste = false;
-        setTimeout(gleicheKarten, 2000);
-    }
-}
-
-
-function gleicheKarten(): void {
-
-        if (bild1.src == bild2.src) {
-            gefundenePaara += 1;
-            gefundenePaara += 1;
-            bild1.id = "move1";
-            bild2.id = "move2";
-            
-        }
-        else {
-            bild1.src = "https://www.trademore.de/isotope/i/id-001-4517-204_quilters-basic-memory.jpg";
-            bild2.src = "https://www.trademore.de/isotope/i/id-001-4517-204_quilters-basic-memory.jpg";
-        } 
-}
-
-async function bilder(_bild: HTMLElement): Promise<void> {
-
-    switch (_bild.id) {
+        klickenVerarbeitet = false;
+        
+        let i: HTMLImageElement = document.createElement("img");
+    
+        switch (_karte.id) {
         case "nr1":
             i.id = "bild1";
             i.src = gemischteKarten[0].url;
-            karteAnzeigen(1);
             break;
         case "nr2":
             i.id = "bild2";
             i.src = gemischteKarten[1].url;
-            karteAnzeigen(2);
             break;
-        case "nr3":
-            i.id = "bild3";
-            i.src = gemischteKarten[2].url;
-            karteAnzeigen(3);
-            break;
-        case "nr4":
-            i.id = "bild4";
-            i.src = gemischteKarten[3].url;
-            karteAnzeigen(4);
-            break;
-        case "nr5":
-            i.id = "bild5";
-            i.src = gemischteKarten[4].url;
-            karteAnzeigen(5);
-            break;
-        case "nr6":
-            i.id = "bild6";
-            i.src = gemischteKarten[5].url;
-            karteAnzeigen(6);
-            break;
-        case "nr7":
-            i.id = "bild7";
-            i.src = gemischteKarten[6].url;
-            karteAnzeigen(7);
-            break;
-        case "nr8":
-            i.id = "bild8";
-            i.src = gemischteKarten[7].url;
-            karteAnzeigen(8);
-            break;
-        case "nr9":
-            i.id = "bild9";
-            i.src = gemischteKarten[8].url;
-            karteAnzeigen(9);
-            break;
-        case "nr10":
-            i.id = "bild10";
-            i.src = gemischteKarten[9].url;
-            karteAnzeigen(10);
-            break;
-        case "nr11":
-            i.id = "bild11";
-            i.src = gemischteKarten[10].url;
-            karteAnzeigen(11);
-            break;
-        case "nr12":
-            i.id = "bild12";
-            i.src = gemischteKarten[11].url;
-            karteAnzeigen(12);
-            break;
-        case "nr13":
-            i.id = "bild13";
-            i.src = gemischteKarten[12].url;
-            karteAnzeigen(13);
-            break;
-        case "nr14":
-            i.id = "bild14";
-            i.src = gemischteKarten[13].url;
-            karteAnzeigen(14);
-            break;
-        case "nr15":
-            i.id = "bild15";
-            i.src = gemischteKarten[14].url;
-            karteAnzeigen(15);
-            break;
-        case "nr16":
-            i.id = "bild16";
-            i.src = gemischteKarten[15].url;
-            karteAnzeigen(16);
-            break;
-        case "nr17":
-            i.id = "bild17";
-            i.src = gemischteKarten[16].url;
-            karteAnzeigen(17);
-            break;
-        case "nr18":
-            i.id = "bild18";
-            i.src = gemischteKarten[17].url;
-            karteAnzeigen(18);
-            break;
-        case "nr19":
-            i.id = "bild19";
-            i.src = gemischteKarten[18].url;
-            karteAnzeigen(19);
-            break;
-        case "nr20":
-            i.id = "bild20";
-            i.src = gemischteKarten[19].url;
-            karteAnzeigen(20);
-            break;
+    case "nr3":
+        i.id = "bild3";
+        i.src = gemischteKarten[2].url;
+        break;
+    case "nr4":
+        i.id = "bild4";
+        i.src = gemischteKarten[3].url;
+        break;
+    case "nr5":
+        i.id = "bild5";
+        i.src = gemischteKarten[4].url;
+        break;
+    case "nr6":
+        i.id = "bild6";
+        i.src = gemischteKarten[5].url;
+        break;
+    case "nr7":
+        i.id = "bild7";
+        i.src = gemischteKarten[6].url;
+        break;
+    case "nr8":
+        i.id = "bild8";
+        i.src = gemischteKarten[7].url;
+        break;
+    case "nr9":
+        i.id = "bild9";
+        i.src = gemischteKarten[8].url;
+        break;
+    case "nr10":
+        i.id = "bild10";
+        i.src = gemischteKarten[9].url;
+        break;
+    case "nr11":
+        i.id = "bild11";
+        i.src = gemischteKarten[10].url;
+        break;
+    case "nr12":
+        i.id = "bild12";
+        i.src = gemischteKarten[11].url;
+        break;
+    case "nr13":
+        i.id = "bild13";
+        i.src = gemischteKarten[12].url;
+        break;
+    case "nr14":
+        i.id = "bild14";
+        i.src = gemischteKarten[13].url;
+        break;
+    case "nr15":
+        i.id = "bild15";
+        i.src = gemischteKarten[14].url;
+        break;
+    case "nr16":
+        i.id = "bild16";
+        i.src = gemischteKarten[15].url;
+        break;
+    case "nr17":
+        i.id = "bild17";
+        i.src = gemischteKarten[16].url;
+        break;
+    case "nr18":
+        i.id = "bild18";
+        i.src = gemischteKarten[17].url;
+        break;
+    case "nr19":
+        i.id = "bild19";
+        i.src = gemischteKarten[18].url;
+        break;
+    case "nr20":
+        i.id = "bild20";
+        i.src = gemischteKarten[19].url;
+        break;
     }
-}
-if (gefundenePaara == 20) {
-    spielende = true;
-}
+
+
+        if (erste == false) {
+        bild1.src = i.src;
+        bild1.id = i.id;
+        document.getElementById("body").appendChild(bild1); 
+        erste = true;
+        klickenVerarbeitet = true;
+    }
+
+    else if (erste == true) {
+        bild2.src = i.src;
+        bild2.id = i.id;
+        document.getElementById("body").appendChild(bild2); 
+        erste = false;
+    
+        await Sleep(4000);
+
+        if (bild1.src == bild2.src) {
+            gefundenePaare += 1;
+            /*
+            for (let i: number = 0; i <= gemischteKarten.length; i++) {
+                if (gemischteKarten[i].url == bild1.src) {
+                    gemischteKarten.splice(i, 1);
+                } 
+            }
+            */
+            let zahl: string [] = bild1.id.split("d");
+            console.log(zahl);
+            let nr: string = "nr" + zahl[1];
+            let img1: HTMLElement = document.getElementById(nr);
+            img1.parentNode.removeChild(img1);
+            let zahl2: string [] = bild2.id.split("d");
+            let nr2: string = "nr" + zahl2[1];
+            let img2: HTMLElement = document.getElementById(nr2);
+            img2.parentNode.removeChild(img2); 
+            
+        }
+
+        document.getElementById("body").removeChild(bild1);
+        document.getElementById("body").removeChild(bild2);
+
+        klickenVerarbeitet = true; 
+    }
+
+        if (gefundenePaare == 10) {
+        spielende = true;
+        alert("Lena ist toll");
+    }   
+    }
 }
