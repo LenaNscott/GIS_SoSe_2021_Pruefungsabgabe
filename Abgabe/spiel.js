@@ -157,7 +157,7 @@ async function spielKarten(_karte) {
             bild2.id = i.id;
             document.getElementById("body").appendChild(bild2);
             erste = false;
-            await Sleep(4000);
+            await Sleep(2000);
             if (bild1.src == bild2.src) {
                 gefundenePaare += 1;
                 /*

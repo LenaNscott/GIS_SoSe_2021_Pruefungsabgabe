@@ -173,7 +173,7 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
         document.getElementById("body").appendChild(bild2); 
         erste = false;
     
-        await Sleep(4000);
+        await Sleep(2000);
 
         if (bild1.src == bild2.src) {
             gefundenePaare += 1;
