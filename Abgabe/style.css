@@ -761,7 +761,26 @@ img {
     }
 }
 
-#move {
+#move1 {
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-name: move;
+}
+
+@keyframes move {
+    from {
+        width: 120px;
+        height: 120px;
+    }
+
+    to {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+#move2 {
     animation-duration: 0.5s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
