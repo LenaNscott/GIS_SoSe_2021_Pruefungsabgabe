@@ -1,9 +1,18 @@
 "use strict";
 let bilderArray;
-function seitenWechseln() {
+let bilderAdminAnzeigen = false;
+function seitenWechseln(_id) {
     let pname = window.location.pathname;
     let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
-    window.location.pathname = geschnittenerPathname + "/spiel.html";
+    if (_id == "start") {
+        window.location.pathname = geschnittenerPathname + "/spiel.html";
+    }
+    else if (_id == "fertig") {
+        window.location.pathname = geschnittenerPathname + "/score.html";
+    }
+    else if (_id == "eintragSeite") {
+        window.location.pathname = geschnittenerPathname + "/eintrag.html";
+    }
 }
 async function urlHinzufuegen() {
     let url = "http://localhost:8100/abschicken"; // https://lenasfancyapp.herokuapp.com
@@ -16,7 +25,7 @@ async function urlHolen() {
     console.log(responseText);
     bilderArray = JSON.parse(responseText);
     console.log(bilderArray);
-    kartenVerteilen(bilderArray);
+    return bilderArray;
 }
 async function versenden(url) {
     let formData = new FormData(document.forms[0]);

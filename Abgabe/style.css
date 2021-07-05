@@ -143,15 +143,7 @@ img {
     left: 1100px;
 }
 
-#stopwatch {
-    position: absolute;
-    width: auto;
-    height: auto;
-    top: 170px;
-    left: 1100px;
-}
-
-#stop {
+#neuesSpiel {
     position: absolute;
     width: auto;
     height: auto;

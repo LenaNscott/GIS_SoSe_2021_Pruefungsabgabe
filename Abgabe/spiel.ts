@@ -1,9 +1,9 @@
 
-urlHolen();
+kartenVerteilen();
+
 let spielende: boolean = false;
 let gefundenePaare: number = 0;
-let gemischteKarten: bild[];
-//let start: HTMLElement = document.getElementById("spielstart");
+let gemischteKarten: Bild[];
 
 let bild1: HTMLImageElement = document.createElement("img");
 bild1.style.position = "absolute";
@@ -22,17 +22,18 @@ bild2.style.top = "275px";
 let klickenVerarbeitet: boolean = true;
 
 
-function kartenVerteilen(_bilder: bild[]): void {
-    let ausgewaehlteKarten: bild[] = [];
-    let bildUrlId: bild [] = _bilder;
+async function kartenVerteilen(): Promise<void> {
+
+    let ausgewaehlteKarten: Bild[] = [];
+    let bildUrlId: Bild[] = await urlHolen();
     for (let i: number = 0; i < 10; i++) {
-       // let zahl: bild = bildUrlId[Math.floor(Math.random() * bildUrlId.length)];
+       //let zahl: bild = bildUrlId[Math.floor(Math.random() * bildUrlId.length)];
         let zahl: bild = bildUrlId[9 - i]; // nur zum testen
         ausgewaehlteKarten.splice(0, 0, zahl);
         let z: number = bildUrlId.indexOf(zahl);
         bildUrlId.splice(z, 1);
     }
-    let neuArrayBilder: bild[] = ausgewaehlteKarten.concat(ausgewaehlteKarten);
+    let neuArrayBilder: Bild[] = ausgewaehlteKarten.concat(ausgewaehlteKarten);
     console.log(ausgewaehlteKarten);
     console.log(neuArrayBilder);
     gemischteKarten = neuArrayBilder;
@@ -42,22 +43,53 @@ function kartenVerteilen(_bilder: bild[]): void {
 function Sleep(milliseconds: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
    }
-/*
-function spielStarten(): void {
-    start.remove ();
-    //document.getElementById(id).innerHTML = _string;
-    let stoppen: HTMLElement = document.getElementById("stop");
-    //stoppen.addEventListener("click", function());  
-    let stoppuhr = (function() {
-        let stop: number = 1;
-        let hrs: number = 0;
-        let mins: number = 0;
-        let secs: number = 0;
-        let msecs: number = 0;
-    });
-    
-} 
-*/
+
+let anzeige: HTMLElement = document.getElementById("timer");
+let start: HTMLElement = document.getElementById("spielstart");
+start.addEventListener("click", function(): void {
+    start.parentNode.removeChild(start);
+    add();
+});
+
+
+let sec: number = 0;
+let min: number = 0;
+let hrs: number = 0;
+let stoppen: boolean = false;
+let gespielteZeit: string;
+   
+function timerLaeuft(): void {
+    if (stoppen == false) {
+        sec++;
+        if (sec >= 60) {
+            sec = 0;
+            min++;
+            if (min >= 60) {
+                min = 0;
+                hrs++;
+            }
+        }
+    }
+}
+
+function add(): void {
+    timerLaeuft();
+    anzeige.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    timer();
+}
+
+function timer(): void {
+    setTimeout(add, 1000);
+}
+   
+function vonVorne(): void {
+    anzeige.textContent = "00:00:00";
+    sec = 0; 
+    min = 0; 
+    hrs = 0;
+    seitenWechseln("start");
+   }
+
 for (let i: number = 1; i <= 20; i++) {
         let karte: HTMLElement = document.getElementById("nr" + [i]);
         karte.addEventListener("click" , function(): void {
@@ -204,7 +236,9 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
 
         if (gefundenePaare == 10) {
         spielende = true;
-        alert("Lena ist toll");
+        stoppen = true;
+        gespielteZeit = anzeige.textContent;
+        seitenWechseln("eintragSeite");
     }   
     }
 }

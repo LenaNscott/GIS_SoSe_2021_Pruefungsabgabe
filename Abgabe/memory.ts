@@ -1,15 +1,25 @@
-interface bild {
+interface Bild {
     _id: string;
     url: string;
 }
 
-let bilderArray: bild[];
+let bilderArray: Bild[];
+let bilderAdminAnzeigen: boolean = false;
 
-
-function seitenWechseln(): void {
+function seitenWechseln(_id: string): void {
     let pname: string = window.location.pathname;
     let geschnittenerPathname: string = pname.slice(0, pname.lastIndexOf("/"));
-    window.location.pathname = geschnittenerPathname + "/spiel.html";   
+    if (_id == "start") {
+        window.location.pathname = geschnittenerPathname + "/spiel.html";
+    }
+    
+    else if (_id == "fertig") {
+        window.location.pathname = geschnittenerPathname + "/score.html";
+    }
+
+    else if (_id == "eintragSeite") {
+        window.location.pathname = geschnittenerPathname + "/eintrag.html";
+    }
 }
 
 
@@ -19,14 +29,14 @@ async function urlHinzufuegen(): Promise<void> {
     console.log(responseText);
 }
 
-async function urlHolen(): Promise<void> {
+async function urlHolen(): Promise<Bild[]> {
     let url: string = "http://localhost:8100/holen";   // https://lenasfancyapp.herokuapp.com
    
     let responseText: string = await versenden(url);
     console.log(responseText);
     bilderArray = JSON.parse(responseText);
     console.log(bilderArray);
-    kartenVerteilen(bilderArray);
+    return bilderArray;
 }
 
 
