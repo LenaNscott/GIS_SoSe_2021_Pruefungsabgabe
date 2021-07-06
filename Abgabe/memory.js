@@ -1,7 +1,47 @@
 "use strict";
 let bilderArray;
 let bilderAdminAnzeigen = false;
-function seitenWechseln(_id) {
+async function versenden(serverUrl) {
+    let response = await fetch(serverUrl);
+    console.log(response);
+    let responseText = await response.text();
+    return responseText;
+}
+async function bildUrlHinzufuegen() {
+    let serverUrl = "http://localhost:8100/abschicken"; // https://lenasfancyapp.herokuapp.com
+    //console.log(document.getElementById("URL").innerHTML);
+    //let responseText: string = await versenden(serverUrl, "?" + document.getElementById("URL").innerHTML);
+    let formData = new FormData(document.forms[0]);
+    let query = new URLSearchParams(formData);
+    let responseText = await versenden(serverUrl + "?" + query.toString());
+    console.log(responseText);
+    let pname = window.location.pathname;
+    let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
+    window.location.pathname = geschnittenerPathname + "/admin.html";
+}
+async function bilderUrlHolen() {
+    let serverUrl = "http://localhost:8100/holen"; // https://lenasfancyapp.herokuapp.com
+    let responseText = await versenden(serverUrl);
+    console.log(responseText);
+    bilderArray = JSON.parse(responseText);
+    console.log(bilderArray);
+    return bilderArray;
+}
+async function BilderLoeschen(loeschendeImg) {
+    let serverUrl = "http://localhost:8100/loeschen"; // https://lenasfancyapp.herokuapp.com
+    console.log(loeschendeImg);
+    let responseText = await versenden(serverUrl + "?" + loeschendeImg);
+    console.log(responseText);
+    //bilderUrlHolen();
+}
+async function eintragDatenbank(_gespielteZeit) {
+    let serverUrl = "http://localhost:8100/eintrag"; // https://lenasfancyapp.herokuapp.com
+    let formData = new FormData(document.forms[0]);
+    let query = new URLSearchParams(formData);
+    let responseText = await versenden(serverUrl + "?" + query.toString() + "&" + _gespielteZeit);
+    console.log(responseText);
+}
+function weiterleitungSeite(_id) {
     let pname = window.location.pathname;
     let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
     if (_id == "start") {
@@ -13,25 +53,5 @@ function seitenWechseln(_id) {
     else if (_id == "eintragSeite") {
         window.location.pathname = geschnittenerPathname + "/eintrag.html";
     }
-}
-async function urlHinzufuegen() {
-    let url = "http://localhost:8100/abschicken"; // https://lenasfancyapp.herokuapp.com
-    let responseText = await versenden(url);
-    console.log(responseText);
-}
-async function urlHolen() {
-    let url = "http://localhost:8100/holen"; // https://lenasfancyapp.herokuapp.com
-    let responseText = await versenden(url);
-    console.log(responseText);
-    bilderArray = JSON.parse(responseText);
-    console.log(bilderArray);
-    return bilderArray;
-}
-async function versenden(url) {
-    let formData = new FormData(document.forms[0]);
-    let query = new URLSearchParams(formData);
-    let response = await fetch(url + "?" + query.toString());
-    let responseText = await response.text();
-    return responseText;
 }
 //# sourceMappingURL=memory.js.map

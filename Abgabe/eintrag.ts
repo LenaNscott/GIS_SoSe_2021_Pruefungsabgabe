@@ -1,4 +1,5 @@
 let highscoreEintrag: HTMLElement = document.getElementById("fertig");
 highscoreEintrag.addEventListener("click", function(): void {
-    seitenWechseln(highscoreEintrag.id);
+    eintragDatenbank(gespielteZeit);
+    weiterleitungSeite(highscoreEintrag.id);
 });

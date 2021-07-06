@@ -7,6 +7,8 @@ const Mongo = require("mongodb");
 var P_3_1Server;
 (function (P_3_1Server) {
     let eingabe;
+    let eingabe2;
+    const { ObjectId } = require("mongodb");
     console.log("Starting server");
     let port = Number(process.env.PORT);
     if (!port)
@@ -22,7 +24,9 @@ var P_3_1Server;
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         eingabe = mongoClient.db("Memory").collection("Bilder");
+        eingabe2 = mongoClient.db("Memory").collection("Spiel");
         console.log("Datenbase conection", eingabe != undefined);
+        console.log("Datenbase conection", eingabe2 != undefined);
     }
     function handleListen() {
         console.log("Listening");
@@ -35,12 +39,28 @@ var P_3_1Server;
         if (url.pathname == "/holen") {
             let ausgabe = JSON.stringify(await eingabe.find().toArray());
             //console.log(ausgabe);   
-            _response.write(String(ausgabe));
+            _response.write(ausgabe);
         }
         else if (url.pathname == "/abschicken") {
             let jsonString = JSON.stringify(url.query);
             _response.write(jsonString);
             eingabe.insert(url.query);
+        }
+        else if (url.pathname == "/loeschen") {
+            let loeschendeBilderString = url.search.slice(1);
+            let loeschendeBilderArray = loeschendeBilderString.split("&");
+            for (let i = 0; i < loeschendeBilderArray.length; i++) {
+                let datenbankObjectId = loeschendeBilderArray[i];
+                console.log(datenbankObjectId);
+                let myquery = { "_id": ObjectId(datenbankObjectId) };
+                eingabe.deleteOne(myquery);
+            }
+            _response.write("Geloescht");
+        }
+        else if (url.pathname == "/eintrag") {
+            let jsonString = JSON.stringify(url.query);
+            _response.write(jsonString);
+            eingabe2.insert(url.query);
         }
         _response.end();
     }

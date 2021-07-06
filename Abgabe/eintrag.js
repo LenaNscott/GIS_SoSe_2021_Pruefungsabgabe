@@ -1,6 +1,7 @@
 "use strict";
 let highscoreEintrag = document.getElementById("fertig");
 highscoreEintrag.addEventListener("click", function () {
-    seitenWechseln(highscoreEintrag.id);
+    eintragDatenbank(gespielteZeit);
+    weiterleitungSeite(highscoreEintrag.id);
 });
 //# sourceMappingURL=eintrag.js.map

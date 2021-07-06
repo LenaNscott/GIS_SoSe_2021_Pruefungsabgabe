@@ -5,6 +5,8 @@ import * as Mongo from "mongodb";
 
 export namespace P_3_1Server { 
     let eingabe: Mongo.Collection;
+    let eingabe2: Mongo.Collection;
+    const {ObjectId} = require("mongodb");
 
     console.log("Starting server"); 
     let port: number = Number(process.env.PORT); 
@@ -25,7 +27,9 @@ export namespace P_3_1Server {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         eingabe = mongoClient.db("Memory").collection("Bilder");
+        eingabe2 = mongoClient.db("Memory").collection("Spiel");
         console.log("Datenbase conection", eingabe != undefined);
+        console.log("Datenbase conection", eingabe2 != undefined);
     }
   
 
@@ -43,7 +47,7 @@ export namespace P_3_1Server {
             let ausgabe: string = JSON.stringify(await eingabe.find().toArray());
             
             //console.log(ausgabe);   
-            _response.write(String(ausgabe));
+            _response.write(ausgabe);
         }
 
         else if (url.pathname == "/abschicken") {
@@ -51,9 +55,26 @@ export namespace P_3_1Server {
             _response.write(jsonString);
             eingabe.insert(url.query);
         }
-             
-        _response.end(); 
 
+        else if (url.pathname == "/loeschen") {
+            let loeschendeBilderString: string = url.search.slice(1);
+            let loeschendeBilderArray: string[] = loeschendeBilderString.split("&");
+            for (let i: number = 0; i < loeschendeBilderArray.length; i++) {
+                let datenbankObjectId: string = loeschendeBilderArray[i];
+                console.log(datenbankObjectId);
+                let myquery = {"_id": ObjectId(datenbankObjectId)};
+                eingabe.deleteOne(myquery);
+            }            
+            _response.write("Geloescht");   
+        }
+
+        else if (url.pathname == "/eintrag") {
+            let jsonString: string = JSON.stringify(url.query);
+            _response.write(jsonString);
+            eingabe2.insert(url.query);
+        }
+             
+        _response.end();
     }
 
 }
