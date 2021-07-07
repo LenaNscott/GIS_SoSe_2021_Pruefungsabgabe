@@ -22,6 +22,7 @@ let min = 0;
 let hrs = 0;
 let sekunden = 0;
 let stoppen = false;
+let anzahlKlicks = 0;
 let anzeige = document.getElementById("timer");
 let start = document.getElementById("spielstart");
 start.addEventListener("click", function () {
@@ -34,8 +35,9 @@ async function kartenVerteilen() {
     let doppelGeholteBilder = kartenMischen(geholteBilder, 10);
     console.log(doppelGeholteBilder);
     doppelGeholteBilder = doppelGeholteBilder.concat(doppelGeholteBilder);
-    console.log(doppelGeholteBilder);
-    gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    //console.log(doppelGeholteBilder);
+    //gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    gemischteKarten = doppelGeholteBilder; //Test
     console.log(gemischteKarten);
 }
 function kartenMischen(_arrayBilder, _anzahl) {
@@ -52,6 +54,7 @@ function kartenMischen(_arrayBilder, _anzahl) {
 }
 async function spielKarten(_karte) {
     if (klickenVerarbeitet == true) {
+        anzahlKlicks++;
         klickenVerarbeitet = false;
         let i = document.createElement("img");
         switch (_karte.id) {
@@ -177,10 +180,11 @@ async function spielKarten(_karte) {
             stoppen = true;
             klickenVerarbeitet = false;
             console.log(anzeige.textContent);
-            document.cookie = "zeit =" + anzeige.textContent;
-            document.cookie = " sec =" + sekunden;
+            document.cookie = "klicks =" + anzahlKlicks;
+            document.cookie = "sec =" + sekunden;
             console.log(document.cookie);
             console.log(sekunden);
+            console.log(anzahlKlicks);
             //weiterleitungSeite("eintragSeite");
         }
     }

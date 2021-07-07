@@ -6,6 +6,7 @@ interface Bild {
 interface HighscoreEintrag {
     name: string;
     sec: number;
+    punkte: number;
 }
 
 let bilderArray: Bild[];
@@ -58,7 +59,7 @@ async function BilderLoeschen(loeschendeImg: string): Promise<void> {
 async function eintragDatenbank(_gespielteZeit: string[]): Promise<void> {
 
     let serverUrl: string = "http://localhost:8100/eintrag";   // https://lenasfancyapp.herokuapp.com
-    let responseText: string = await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1]);
+    let responseText: string = await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1] + "&" + _gespielteZeit[2]);
     console.log(responseText);
 }
 

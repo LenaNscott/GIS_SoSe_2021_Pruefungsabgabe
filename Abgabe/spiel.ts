@@ -25,6 +25,7 @@ let min: number = 0;
 let hrs: number = 0;
 let sekunden: number = 0;
 let stoppen: boolean = false;
+let anzahlKlicks: number = 0;
 
 
 let anzeige: HTMLElement = document.getElementById("timer");
@@ -43,9 +44,10 @@ async function kartenVerteilen(): Promise<void> {
     let doppelGeholteBilder: Bild[] = kartenMischen(geholteBilder, 10);
     console.log(doppelGeholteBilder);
     doppelGeholteBilder = doppelGeholteBilder.concat(doppelGeholteBilder);
-    console.log(doppelGeholteBilder);
+    //console.log(doppelGeholteBilder);
     
-    gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    //gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    gemischteKarten = doppelGeholteBilder; //Test
     console.log(gemischteKarten);
 }
 
@@ -64,9 +66,9 @@ function kartenMischen(_arrayBilder: Bild[], _anzahl: number): Bild[] {
 }
 
 async function spielKarten(_karte: HTMLElement): Promise<void> {
-    
+   
     if (klickenVerarbeitet == true) {
-
+        anzahlKlicks++;
         klickenVerarbeitet = false;
         
         let i: HTMLImageElement = document.createElement("img");
@@ -203,10 +205,11 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
             stoppen = true;
             klickenVerarbeitet = false;
             console.log(anzeige.textContent);
-            document.cookie = "zeit =" + anzeige.textContent;
+            document.cookie = "klicks =" + anzahlKlicks;
             document.cookie = "sec =" + sekunden;
             console.log(document.cookie);
             console.log(sekunden);
+            console.log(anzahlKlicks);
             //weiterleitungSeite("eintragSeite");
         }   
     }

@@ -36,7 +36,7 @@ async function BilderLoeschen(loeschendeImg) {
 }
 async function eintragDatenbank(_gespielteZeit) {
     let serverUrl = "http://localhost:8100/eintrag"; // https://lenasfancyapp.herokuapp.com
-    let responseText = await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1]);
+    let responseText = await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1] + "&" + _gespielteZeit[2]);
     console.log(responseText);
 }
 function weiterleitungSeite(_id) {
