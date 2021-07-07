@@ -62,6 +62,11 @@ var P_3_1Server;
             _response.write(jsonString);
             eingabe2.insert(url.query);
         }
+        else if (url.pathname == "/holenscore") {
+            let ausgabe = JSON.stringify(await eingabe2.find().toArray());
+            //console.log(ausgabe);   
+            _response.write(ausgabe);
+        }
         _response.end();
     }
 })(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));

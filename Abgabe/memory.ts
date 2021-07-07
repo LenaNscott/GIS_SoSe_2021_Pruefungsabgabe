@@ -3,6 +3,11 @@ interface Bild {
     url: string;
 }
 
+interface HighscoreEintrag {
+    name: string;
+    sec: number;
+}
+
 let bilderArray: Bild[];
 let bilderAdminAnzeigen: boolean = false;
 
@@ -50,11 +55,10 @@ async function BilderLoeschen(loeschendeImg: string): Promise<void> {
     //bilderUrlHolen();
 }
 
-async function eintragDatenbank(_gespielteZeit: string): Promise<void> {
+async function eintragDatenbank(_gespielteZeit: string[]): Promise<void> {
+
     let serverUrl: string = "http://localhost:8100/eintrag";   // https://lenasfancyapp.herokuapp.com
-    let formData: FormData = new FormData(document.forms[0]); 
-    let query: URLSearchParams = new URLSearchParams(<any>formData);
-    let responseText: string = await versenden(serverUrl + "?" + query.toString() + "&" + _gespielteZeit);
+    let responseText: string = await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1]);
     console.log(responseText);
 }
 

@@ -23,8 +23,9 @@ bild2.style.top = "275px";
 let sec: number = 0;
 let min: number = 0;
 let hrs: number = 0;
+let sekunden: number = 0;
 let stoppen: boolean = false;
-let gespielteZeit: string;
+
 
 let anzeige: HTMLElement = document.getElementById("timer");
 let start: HTMLElement = document.getElementById("spielstart");
@@ -201,8 +202,12 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
             spielende = true;
             stoppen = true;
             klickenVerarbeitet = false;
-            gespielteZeit = anzeige.textContent;
-            weiterleitungSeite("eintragSeite");
+            console.log(anzeige.textContent);
+            document.cookie = "zeit =" + anzeige.textContent;
+            document.cookie = "sec =" + sekunden;
+            console.log(document.cookie);
+            console.log(sekunden);
+            //weiterleitungSeite("eintragSeite");
         }   
     }
 }
@@ -212,10 +217,11 @@ function Sleep(milliseconds: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
    }
 
-   
+
 function timerLaeuft(): void {
     if (stoppen == false) {
         sec++;
+        sekunden++;
         if (sec >= 60) {
             sec = 0;
             min++;

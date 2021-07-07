@@ -20,8 +20,8 @@ bild2.style.top = "275px";
 let sec = 0;
 let min = 0;
 let hrs = 0;
+let sekunden = 0;
 let stoppen = false;
-let gespielteZeit;
 let anzeige = document.getElementById("timer");
 let start = document.getElementById("spielstart");
 start.addEventListener("click", function () {
@@ -176,8 +176,12 @@ async function spielKarten(_karte) {
             spielende = true;
             stoppen = true;
             klickenVerarbeitet = false;
-            gespielteZeit = anzeige.textContent;
-            weiterleitungSeite("eintragSeite");
+            console.log(anzeige.textContent);
+            document.cookie = "zeit =" + anzeige.textContent;
+            document.cookie = " sec =" + sekunden;
+            console.log(document.cookie);
+            console.log(sekunden);
+            //weiterleitungSeite("eintragSeite");
         }
     }
 }
@@ -187,6 +191,7 @@ function Sleep(milliseconds) {
 function timerLaeuft() {
     if (stoppen == false) {
         sec++;
+        sekunden++;
         if (sec >= 60) {
             sec = 0;
             min++;

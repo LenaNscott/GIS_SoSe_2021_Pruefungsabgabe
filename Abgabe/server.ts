@@ -73,6 +73,13 @@ export namespace P_3_1Server {
             _response.write(jsonString);
             eingabe2.insert(url.query);
         }
+
+        else if (url.pathname == "/holenscore") {
+            let ausgabe: string = JSON.stringify(await eingabe2.find().toArray());
+            
+            //console.log(ausgabe);   
+            _response.write(ausgabe);
+        }
              
         _response.end();
     }
