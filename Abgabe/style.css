@@ -77,22 +77,29 @@ h1{
 
 p, h2, label {
     color: #8FBC8F;
+    text-align: center;
 }
 
 #name {
     color: #8FBC8F;
-    position: absolute;
-    top: 450px;
-    left: 550px;
+    text-align: center;
     font-size: 20px;
 }
 
 #nameEintrag {
-    position: absolute;
-    top: 450px;
-    left: 780px;
+    text-align: center;
     height: 15px;
     width: auto;
+}
+
+#Formular {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#Eintrag {
+    text-align: center;
+    padding-top: 90px;
 }
 
 
@@ -119,34 +126,35 @@ table, th, td {
 }
 
 #startHome {
-    position: absolute;
+    text-align: center;
     height: auto;
     width: 200px;
     font-size: 25px;
     top: 210px;
-    left: 650px;
 }
 
 #erklaertext {
-    position: absolute;
-    top: 270px;
-    left: 400px;
+    text-align: center;
+    top: 280px;
+    padding-top: 20px;
 }
 
 
 #URL {
     width: 500px;
     height: auto;
+    text-align: center;
 }
 
 #url {
     color: #8FBC8F;
+    text-align: center;
 }
 
 img {
     height: 120px;
     width: 120px;
-    position: absolute;
+    text-align: center;
     z-index: 4;
 }
 
@@ -182,20 +190,19 @@ img {
     color: #f2f2f2;
     top: 220px;
     left: 650px;
+    padding-top: 10px;
 }
 
 #punkteAnzeige {
-    position: absolute;
+    text-align: center;
     font-size: 70px;
     color: #f2f2f2;
-    top: 350px;
-    left: 700px;
+    padding-top: 110px;
+
 }
 
 #p {
-    position: absolute;
-    top: 300px;
-    left: 720px;
+    padding-top: 100px;
 }
 
 #neuesSpiel {
@@ -208,37 +215,35 @@ img {
 }
 
 #fertig {
-    position: absolute;
+   text-align: center;
     font-size: 15px;
     width: 70px;
     height: auto;
-    left: 950px;
-    top: 440px;
 }
 
 #einfuegen {
-    position: absolute;
+    text-align: center;
     font-size: 20px;
     width: 150px;
     height: auto;
-    left: 700px;
+
 }
 
 #loeschen {
-    position: absolute;
+    text-align: center;
     font-size: 20px;
     width: 150px;
     height: auto;
-    left: 700px;
-    top: 420px;
 }
 
 #text {
-    position: absolute;
-    top: 300px;
-    left: 400px;
+   text-align: center;
+   padding-top: 30px;
 }
 
+#anzeige {
+    text-align: center;
+}
 
 #nr1 {
     position: absolute;
