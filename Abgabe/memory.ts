@@ -12,6 +12,7 @@ interface HighscoreEintrag {
 
 let bilderArray: Bild[];
 let bilderAdminAnzeigen: boolean = false;
+let serverBaseUrl: string = "https://lenasfancyapp.herokuapp.com"; //"http://localhost:8100";
 
 
 async function versenden(serverUrl: string): Promise<string> {
@@ -25,7 +26,7 @@ async function versenden(serverUrl: string): Promise<string> {
 
 
 async function bildUrlHinzufuegen(): Promise<void> {
-    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/abschicken";   //  "http://localhost:8100/abschicken"
+    let serverUrl: string = serverBaseUrl + "/abschicken";
     
     let formData: FormData = new FormData(document.forms[0]); 
     let query: URLSearchParams = new URLSearchParams(<any>formData);
@@ -36,9 +37,8 @@ async function bildUrlHinzufuegen(): Promise<void> {
     window.location.pathname = geschnittenerPathname + "/admin.html";
 }
 
-
 async function bilderUrlHolen(): Promise<Bild[]> {
-    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/holen";   //  "http://localhost:8100/holen"
+    let serverUrl: string = serverBaseUrl + "/holen";
    
     let responseText: string = await versenden(serverUrl);
     //console.log(responseText);
@@ -49,18 +49,23 @@ async function bilderUrlHolen(): Promise<Bild[]> {
 
 
 async function BilderLoeschen(loeschendeImg: string): Promise<void> {
-    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/loeschen";   //  "http://localhost:8100/loeschen"
+    let serverUrl: string = serverBaseUrl + "/loeschen";
     //console.log(loeschendeImg);
     await versenden(serverUrl + "?" + loeschendeImg);
 }
 
-async function eintragDatenbank(_gespielteZeit: string[]): Promise<void> {
+async function eintragDatenbank(dbParameter: string[]): Promise<void> {
 
-    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/eintrag";   // "http://localhost:8100/eintrag"
-    await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1] + "&" + _gespielteZeit[2] + "&" + _gespielteZeit[3]);
+    let serverUrl: string = serverBaseUrl + "/eintrag";
+    await versenden(serverUrl + "?" + dbParameter[0] + "&" + dbParameter[1] + "&" + dbParameter[2] + "&" + dbParameter[3]);
     //console.log(responseText);
 }
 
+async function scoreHolen(): Promise<string> {
+    let serverUrl: string = serverBaseUrl + "/holenscore";
+    let responseText: string = await versenden(serverUrl);
+    return responseText;
+}
 
 
 function weiterleitungSeite(_id: string): void {

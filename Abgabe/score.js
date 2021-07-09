@@ -6,10 +6,9 @@ spielen.addEventListener("click", function () {
 highscoreTabelle();
 let spielerDaten = [];
 async function highscoreTabelle() {
-    let serverUrl = "https://lenasfancyapp.herokuapp.com/holenscore"; //  "http://localhost:8100/holenscore"
-    let responseText = await versenden(serverUrl);
     //console.log(responseText);
-    spielerDaten = JSON.parse(responseText);
+    let scoreString = await scoreHolen();
+    spielerDaten = JSON.parse(scoreString);
     //console.log(spielerDaten);
     spielerDaten = spielerDaten.sort(function (a, b) {
         return a.punkte - b.punkte;

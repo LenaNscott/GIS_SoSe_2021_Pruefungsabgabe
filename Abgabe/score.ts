@@ -7,11 +7,10 @@ highscoreTabelle();
 let spielerDaten: HighscoreEintrag [] = [];
 
 async function highscoreTabelle(): Promise<void> {
-    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/holenscore";   //  "http://localhost:8100/holenscore"
-    let responseText: string = await versenden(serverUrl);
+
     //console.log(responseText);
-   
-    spielerDaten = JSON.parse(responseText);
+    let scoreString: string = await scoreHolen();
+    spielerDaten = JSON.parse(scoreString);
     //console.log(spielerDaten);
 
     spielerDaten = spielerDaten.sort(function(a, b) {

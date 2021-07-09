@@ -14,13 +14,13 @@ anzeigeScore.innerHTML = punkte.toString();
 anzeigeZeit.innerHTML = secString(sek.toString());
 document.getElementById("body").appendChild(anzeigeZeit);
 document.getElementById("body").appendChild(anzeigeScore);
-function datenbankSchreiben() {
+async function datenbankSchreiben() {
     let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);
     let name = query.toString();
     let datenbankEintrag = ["punkte=" + punkte, "sec=" + sek, name, "klicks=" + klicks];
-    //console.log(eintrag);
-    eintragDatenbank(datenbankEintrag);
+    //console.log(datenbankEintrag);
+    await eintragDatenbank(datenbankEintrag);
     weiterleitungSeite(highscoreEintrag.id);
 }
 //# sourceMappingURL=eintrag.js.map

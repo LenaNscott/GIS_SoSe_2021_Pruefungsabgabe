@@ -26,7 +26,7 @@ async function datenbankSchreiben(): Promise <void> {
     let name: string = query.toString();
 
     let datenbankEintrag: string[] = ["punkte=" + punkte, "sec=" + sek, name, "klicks=" + klicks];
-    //console.log(eintrag);
+    //console.log(datenbankEintrag);
     await eintragDatenbank(datenbankEintrag); 
     weiterleitungSeite(highscoreEintrag.id);
 }
