@@ -1,5 +1,5 @@
 "use strict";
-let spiel = document.getElementById("start");
+let spiel = document.getElementById("startHome");
 spiel.addEventListener("click", function () {
     weiterleitungSeite(spiel.id);
 });

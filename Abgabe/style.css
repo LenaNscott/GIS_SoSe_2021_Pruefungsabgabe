@@ -118,6 +118,21 @@ table, th, td {
     left: 1200px;
 }
 
+#startHome {
+    position: absolute;
+    height: auto;
+    width: 200px;
+    font-size: 25px;
+    top: 210px;
+    left: 650px;
+}
+
+#erklaertext {
+    position: absolute;
+    top: 270px;
+    left: 400px;
+}
+
 
 #URL {
     width: 500px;

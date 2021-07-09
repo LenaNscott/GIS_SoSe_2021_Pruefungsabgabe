@@ -74,6 +74,10 @@ function weiterleitungSeite(_id: string): void {
     if (_id == "start") {
         window.location.pathname = geschnittenerPathname + "/spiel.html";
     }
+
+    else if (_id == "startHome") {
+        window.location.pathname = geschnittenerPathname + "/spiel.html";
+    }
     
     else if (_id == "fertig") {
         window.location.pathname = geschnittenerPathname + "/score.html";

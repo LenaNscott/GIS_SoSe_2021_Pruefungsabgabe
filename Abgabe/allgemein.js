@@ -46,6 +46,9 @@ function weiterleitungSeite(_id) {
     if (_id == "start") {
         window.location.pathname = geschnittenerPathname + "/spiel.html";
     }
+    else if (_id == "startHome") {
+        window.location.pathname = geschnittenerPathname + "/spiel.html";
+    }
     else if (_id == "fertig") {
         window.location.pathname = geschnittenerPathname + "/score.html";
     }
@@ -64,4 +67,4 @@ function secString(_zeitSec) {
     zeitAnzeige = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
     return zeitAnzeige;
 }
-//# sourceMappingURL=memory.js.map
+//# sourceMappingURL=allgemein.js.map
