@@ -20,14 +20,14 @@ document.getElementById("body").appendChild(anzeigeZeit);
 document.getElementById("body").appendChild(anzeigeScore);
 
 
-function datenbankSchreiben(): void {
+async function datenbankSchreiben(): Promise <void> {
     let formData: FormData = new FormData(document.forms[0]);
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     let name: string = query.toString();
 
     let datenbankEintrag: string[] = ["punkte=" + punkte, "sec=" + sek, name, "klicks=" + klicks];
     //console.log(eintrag);
-    eintragDatenbank(datenbankEintrag); 
+    await eintragDatenbank(datenbankEintrag); 
     weiterleitungSeite(highscoreEintrag.id);
 }
 
