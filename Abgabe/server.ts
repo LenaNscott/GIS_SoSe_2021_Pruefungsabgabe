@@ -71,8 +71,8 @@ export namespace P_3_1Server {
         else if (url.pathname == "/eintrag") {
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
-            console.log(jsonString);
-            eingabe2.insert(url.query);
+            //console.log(jsonString);
+            eingabe2.insertOne(url.query);
         }
 
         else if (url.pathname == "/holenscore") {
