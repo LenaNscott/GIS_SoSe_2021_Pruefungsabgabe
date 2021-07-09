@@ -22,12 +22,11 @@ async function bilderAnzeigen(): Promise<void> {
         adminBild.title = bilderArray[i]._id;
 
         adminBild.style.position = "relativ";
-        let positionLinks: number = (i % 4) * 300 + 10;
+        let positionLinks: number = (i % 4) * 230 + 300;
         adminBild.style.left = positionLinks.toString() + "px";
-        let positionOben: number = Math.floor((i / 4)) * 300 + 300;
+        let positionOben: number = Math.floor((i / 4)) * 230 + 500;
         adminBild.style.top = positionOben.toString() + "px";
 
-        adminBild.style.margin = "20px";
         adminBild.id = "bildanzeige" + i.toString();
         adminBild.style.height = "200px";
         adminBild.style.width = "200px";
@@ -59,9 +58,9 @@ function auswahlBilder(angeklicktesBild: HTMLImageElement): void {
 
 
 async function auswahlLoeschen(): Promise<void> {
-    let loeschendeBilderString = loeschendeBilder.join("&");
+    let loeschendeBilderString: string = loeschendeBilder.join("&");
     await BilderLoeschen(loeschendeBilderString);
-    console.log(loeschendeBilder);
+    //console.log(loeschendeBilder);
     let pname: string = window.location.pathname;
     let geschnittenerPathname: string = pname.slice(0, pname.lastIndexOf("/"));
     window.location.pathname = geschnittenerPathname + "/admin.html";

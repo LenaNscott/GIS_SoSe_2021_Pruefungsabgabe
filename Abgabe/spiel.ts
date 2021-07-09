@@ -32,23 +32,33 @@ let anzeige: HTMLElement = document.getElementById("timer");
 let start: HTMLElement = document.getElementById("spielstart");
 start.addEventListener("click", function(): void {
     start.parentNode.removeChild(start);
+    for (let i: number = 1; i <= 20; i++) {
+        let karte: HTMLElement = document.getElementById("nr" + [i]);
+        karte.addEventListener("click" , function(): void {
+        spielKarten(karte);
+        });   
+    }
+    
     add();
 });
+
+let neuStart: HTMLElement = document.getElementById("neuesSpiel");
+neuStart.addEventListener("click", reload);
 
 
 
 async function kartenVerteilen(): Promise<void> {
 
     let geholteBilder: Bild[] = await bilderUrlHolen();
-    console.log(geholteBilder);
+    //console.log(geholteBilder);
     let doppelGeholteBilder: Bild[] = kartenMischen(geholteBilder, 10);
-    console.log(doppelGeholteBilder);
+    //console.log(doppelGeholteBilder);
     doppelGeholteBilder = doppelGeholteBilder.concat(doppelGeholteBilder);
     //console.log(doppelGeholteBilder);
     
-    //gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
-    gemischteKarten = doppelGeholteBilder; //Test
-    console.log(gemischteKarten);
+    gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    //gemischteKarten = doppelGeholteBilder; //Erzeugt sortiertes Array, zum testen
+    //console.log(gemischteKarten);
 }
 
 function kartenMischen(_arrayBilder: Bild[], _anzahl: number): Bild[] {
@@ -56,10 +66,8 @@ function kartenMischen(_arrayBilder: Bild[], _anzahl: number): Bild[] {
     let gefuelltesGemischtesBildArray: Bild[] = [];
     for (let i: number = 0; i < _anzahl; i++) {
         let randomNumber: number = Math.floor(Math.random() * _arrayBilder.length);
-        let img: Bild = _arrayBilder[randomNumber];
-       // let img: bild = geholteBilder[9 - i];  nur zum testen
+        let img: Bild = _arrayBilder[randomNumber];  
         gefuelltesGemischtesBildArray.splice(0, 0, img);
-        //let z: number = _arrayBilder.indexOf(img);
         _arrayBilder.splice(randomNumber, 1);
     }
     return gefuelltesGemischtesBildArray;
@@ -175,15 +183,9 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
 
             if (bild1.src == bild2.src) {
                 gefundenePaare += 1;
-                /*
-                for (let i: number = 0; i <= gemischteKarten.length; i++) {
-                 if (gemischteKarten[i].url == bild1.src) {
-                    gemischteKarten.splice(i, 1);
-                } 
-                }
-                */
+             
                 let idZahleins: string [] = bild1.id.split("d");
-                console.log(idZahleins);
+                //console.log(idZahleins);
                 let nr: string = "nr" + idZahleins[1];
                 let img1: HTMLElement = document.getElementById(nr);
                 img1.parentNode.removeChild(img1);
@@ -204,13 +206,13 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
             spielende = true;
             stoppen = true;
             klickenVerarbeitet = false;
-            console.log(anzeige.textContent);
-            document.cookie = "klicks =" + anzahlKlicks;
-            document.cookie = "sec =" + sekunden;
-            console.log(document.cookie);
-            console.log(sekunden);
-            console.log(anzahlKlicks);
-            //weiterleitungSeite("eintragSeite");
+            //console.log(anzeige.textContent);
+            document.cookie = "klicks=" + anzahlKlicks;
+            document.cookie = "sec=" + sekunden;
+            //console.log(document.cookie);
+            //console.log(sekunden);
+            //console.log(anzahlKlicks);
+            weiterleitungSeite("eintragSeite");
         }   
     }
 }
@@ -254,15 +256,11 @@ function timerAufNull(): void {
     weiterleitungSeite("start");
 }
 
-
+function reload(): void {
+    window.location.href = window.location.href;
+}
 
 kartenVerteilen();
 
-for (let i: number = 1; i <= 20; i++) {
-    let karte: HTMLElement = document.getElementById("nr" + [i]);
-    karte.addEventListener("click" , function(): void {
-    spielKarten(karte);
-    });   
-}
 
 

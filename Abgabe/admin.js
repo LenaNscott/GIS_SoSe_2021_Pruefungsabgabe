@@ -14,11 +14,10 @@ async function bilderAnzeigen() {
         adminBild.src = bilderArray[i].url;
         adminBild.title = bilderArray[i]._id;
         adminBild.style.position = "relativ";
-        let positionLinks = (i % 4) * 300 + 10;
+        let positionLinks = (i % 4) * 230 + 300;
         adminBild.style.left = positionLinks.toString() + "px";
-        let positionOben = Math.floor((i / 4)) * 300 + 300;
+        let positionOben = Math.floor((i / 4)) * 230 + 500;
         adminBild.style.top = positionOben.toString() + "px";
-        adminBild.style.margin = "20px";
         adminBild.id = "bildanzeige" + i.toString();
         adminBild.style.height = "200px";
         adminBild.style.width = "200px";
@@ -45,7 +44,7 @@ function auswahlBilder(angeklicktesBild) {
 async function auswahlLoeschen() {
     let loeschendeBilderString = loeschendeBilder.join("&");
     await BilderLoeschen(loeschendeBilderString);
-    console.log(loeschendeBilder);
+    //console.log(loeschendeBilder);
     let pname = window.location.pathname;
     let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
     window.location.pathname = geschnittenerPathname + "/admin.html";

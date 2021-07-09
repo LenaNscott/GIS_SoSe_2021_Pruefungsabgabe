@@ -51,7 +51,7 @@ var P_3_1Server;
             let loeschendeBilderArray = loeschendeBilderString.split("&");
             for (let i = 0; i < loeschendeBilderArray.length; i++) {
                 let datenbankObjectId = loeschendeBilderArray[i];
-                console.log(datenbankObjectId);
+                //console.log(datenbankObjectId);
                 let myquery = { "_id": ObjectId(datenbankObjectId) };
                 eingabe.deleteOne(myquery);
             }

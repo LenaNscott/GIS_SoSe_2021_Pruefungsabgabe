@@ -21,6 +21,12 @@
     background-color: black;
 }
 
+button {
+    background-color: black;
+    color: white;
+    margin: 10px;
+}
+
 a.eins {  
     color:aqua; 
 }
@@ -69,9 +75,26 @@ h1{
     background-position: center;
 }
 
-p, h2 {
+p, h2, label {
     color: #8FBC8F;
 }
+
+#name {
+    color: #8FBC8F;
+    position: absolute;
+    top: 450px;
+    left: 550px;
+    font-size: 20px;
+}
+
+#nameEintrag {
+    position: absolute;
+    top: 450px;
+    left: 780px;
+    height: 15px;
+    width: auto;
+}
+
 
 table, th, td { 
     border: 1px solid; 
@@ -87,13 +110,12 @@ table, th, td {
 
 
 #start {
+    position: absolute;
     height: auto;
     width: 200px;
     font-size: 25px;
-    text-align: center;
-    margin: 10px;
-    background-color: black;
-    color: white;
+    top: 230px;
+    left: 1200px;
 }
 
 
@@ -124,38 +146,90 @@ img {
 #spielstart {
     z-index: 6;
     position: absolute;
-    left: 530px;
-    top: 360px;
+    left: 510px;
+    top: 300px;
     height: auto;
     width: 400px;
     font-size: 50px;
-    text-align: center;
-    margin: 10px;
-    background-color: black;
-    color: white;
 }
 
 #timer {
     position: absolute;
-    width: auto;
-    height: auto;
+    font-size: 50px;
     top: 170px;
     left: 1100px;
+    color: #f2f2f2;
+}
+
+#timerAnzeige {
+    position: absolute;
+    font-size: 70px;
+    color: #f2f2f2;
+    top: 220px;
+    left: 650px;
+}
+
+#punkteAnzeige {
+    position: absolute;
+    font-size: 70px;
+    color: #f2f2f2;
+    top: 350px;
+    left: 700px;
+}
+
+#p {
+    position: absolute;
+    top: 300px;
+    left: 720px;
 }
 
 #neuesSpiel {
     position: absolute;
-    width: auto;
     height: auto;
-    top: 230px;
-    left: 1200px;
+    width: 200px;
+    font-size: 20px;
+    top: 250px;
+    left: 1100px;
 }
+
+#fertig {
+    position: absolute;
+    font-size: 15px;
+    width: 70px;
+    height: auto;
+    left: 950px;
+    top: 440px;
+}
+
+#einfuegen {
+    position: absolute;
+    font-size: 20px;
+    width: 150px;
+    height: auto;
+    left: 700px;
+}
+
+#loeschen {
+    position: absolute;
+    font-size: 20px;
+    width: 150px;
+    height: auto;
+    left: 700px;
+    top: 420px;
+}
+
+#text {
+    position: absolute;
+    top: 300px;
+    left: 400px;
+}
+
 
 #nr1 {
     position: absolute;
     border: 10px;
     left: 400px;
-    top: 170px;
+    top: 100px;
     
 }
 
@@ -163,77 +237,77 @@ img {
     position: absolute;
     border: 10px;
     left: 400px;
-    top: 300px;
+    top: 230px;
 }
 
 #nr3 {
     position: absolute;
     border: 10px;
     left: 400px;
-    top: 430px;
+    top: 360px;
 }
 
 #nr4 {
     position: absolute;
     border: 10px;
     left: 400px;
-    top: 560px;
+    top: 490px;
 }
 
 #nr5 {
     position: absolute;
     border: 10px;
     left: 530px;
-    top: 170px;
+    top: 100px;
 }
 
 #nr6 {
     position: absolute;
     border: 10px;
     left: 530px;
-    top: 300px;
+    top: 230px;
 }
 
 #nr7 {
     position: absolute;
     border: 10px;
     left: 530px;
-    top: 430px;
+    top: 360px;
 }
 
 #nr8 {
     position: absolute;
     border: 10px;
     left: 530px;
-    top: 560px;
+    top: 490px;
 }
 
 #nr9 {
     position: absolute;
     border: 10px;
     left: 660px;
-    top: 170px;
+    top: 100px;
 }
 
 #nr10 {
     position: absolute;
     border: 10px;
     left: 660px;
-    top: 300px;
+    top: 230px;
 }
 
 #nr11 {
     position: absolute;
     border: 10px;
     left: 660px;
-    top: 430px;
+    top: 360px;
 }
 
 #nr12 {
     position: absolute;
     border: 10px;
     left: 660px;
-    top: 560px;
+    top: 490px;
 }
 
 
@@ -241,56 +315,56 @@ img {
     position: absolute;
     border: 10px;
     left: 790px;
-    top: 170px;
+    top: 100px;
 }
 
 #nr14 {
     position: absolute;
     border: 10px;
     left: 790px;
-    top: 300px;
+    top: 230px;
 }
 
 #nr15 {
     position: absolute;
     border: 10px;
     left: 790px;
-    top: 430px;
+    top: 360px;
 }
 
 #nr16 {
     position: absolute;
     border: 10px;
     left: 790px;
-    top: 560px;
+    top: 490px;
 }
 
 #nr17 {
     position: absolute;
     border: 10px;
     left: 920px;
-    top: 170px;
+    top: 100px;
 }
 
 #nr18 {
     position: absolute;
     border: 10px;
     left: 920px;
-    top: 300px;
+    top: 230px;
 }
 
 #nr19 {
     position: absolute;
     border: 10px;
     left: 920px;
-    top: 430px;
+    top: 360px;
 }
 
 #nr20 {
     position: absolute;
     border: 10px;
     left: 920px;
-    top: 560px;
+    top: 490px;
 }
 
 #bild1 {
@@ -311,7 +385,7 @@ img {
     to {
         width: 120px;
         height: 120px;
-        top: 170px;
+        top: 100px;
         left: 400px;
     }
 }
@@ -334,7 +408,7 @@ img {
     to {
         width: 120px;
         height: 120px;
-        top: 300px;
+        top: 230px;
         left: 400px;
     }
 }
@@ -357,7 +431,7 @@ img {
     to {
         width: 120px;
         height: 120px;
-        top: 430px;
+        top: 360px;
         left: 400px;
     }
 }
@@ -380,7 +454,7 @@ img {
     to {
         width: 120px;
         height: 120px;
-        top: 560px;
+        top: 490px;
         left: 400px;
     }
 }
@@ -404,7 +478,7 @@ img {
         width: 120px;
         height: 120px;
         left: 530px;
-        top: 170px;
+        top: 100px;
     }
 }
 
@@ -427,7 +501,7 @@ img {
         width: 120px;
         height: 120px;
         left: 530px;
-        top: 300px;
+        top: 230px;
     }
 }
 
@@ -450,7 +524,7 @@ img {
         width: 120px;
         height: 120px;
         left: 530px;
-        top: 430px;
+        top: 360px;
     }
 }
 
@@ -473,7 +547,7 @@ img {
         width: 120px;
         height: 120px;
         left: 530px;
-        top: 560px;
+        top: 490px;
     }
 }
 
@@ -496,7 +570,7 @@ img {
         width: 120px;
         height: 120px;
         left: 660px;
-        top: 170px;
+        top: 100px;
     }
 }
 
@@ -519,7 +593,7 @@ img {
         width: 120px;
         height: 120px;
         left: 660px;
-        top: 300px;
+        top: 230px;
     }
 }
 
@@ -542,7 +616,7 @@ img {
         width: 120px;
         height: 120px;
         left: 660px;
-        top: 430px;
+        top: 360px;
     }
 }
 
@@ -565,7 +639,7 @@ img {
         width: 120px;
         height: 120px;
         left: 660px;
-        top: 560px;
+        top: 490px;
     }
 }
 
@@ -588,7 +662,7 @@ img {
         width: 120px;
         height: 120px;
         left: 790px;
-        top: 170px;
+        top: 100px;
     }
 }
 
@@ -611,7 +685,7 @@ img {
         width: 120px;
         height: 120px;
         left: 790px;
-        top: 300px;
+        top: 230px;
     }
 }
 
@@ -634,7 +708,7 @@ img {
         width: 120px;
         height: 120px;
         left: 790px;
-        top: 430px;
+        top: 360px;
     }
 }
 
@@ -657,7 +731,7 @@ img {
         width: 120px;
         height: 120px;
         left: 790px;
-        top: 560px;
+        top: 490px;
     }
 }
 
@@ -680,7 +754,7 @@ img {
         width: 120px;
         height: 120px;
         left: 920px;
-        top: 170px;
+        top: 100px;
     }
 }
 
@@ -703,7 +777,7 @@ img {
         width: 120px;
         height: 120px;
         left: 920px;
-        top: 300px;
+        top: 230px;
     }
 }
 
@@ -726,7 +800,7 @@ img {
         width: 120px;
         height: 120px;
         left: 920px;
-        top: 430px;
+        top: 360px;
     }
 }
 
@@ -749,7 +823,7 @@ img {
         width: 120px;
         height: 120px;
         left: 920px;
-        top: 560px;
+        top: 490px;
     }
 }
 

@@ -1,44 +1,33 @@
 let highscoreEintrag: HTMLElement = document.getElementById("fertig");
-let eingabeNamen: HTMLElement = document.getElementById("nameEintrag");
-highscoreEintrag.addEventListener("click", cookie);
+highscoreEintrag.addEventListener("click", datenbankSchreiben);
 
-let cookieZeit: string;
-if (document.cookie) {
-    cookieZeit = document.cookie;
-}
-let anzeigeZeit: HTMLElement = document.createElement("timer");
-//document.getElementById("body").appendChild(anzeigeZeit);
 
-function cookie(): void {
+let anzeigeZeit: HTMLElement = document.getElementById("timerAnzeige");
+let anzeigeScore: HTMLElement = document.getElementById("punkteAnzeige");
+
+let cookiesSplit: string [] = [];
+//console.log(document.cookie);
+cookiesSplit = document.cookie.split("; ");
+//console.log(cookiesSplit);
+let klicks: number = parseInt(cookiesSplit[0].split("=")[1]);
+let sek: number = parseInt(cookiesSplit[1].split("=")[1]);
+let punkte: number = Math.round(80000 / (klicks + (sek / 3)));
+
+anzeigeScore.innerHTML = punkte.toString();
+anzeigeZeit.innerHTML = secString(sek.toString());
+
+document.getElementById("body").appendChild(anzeigeZeit);
+document.getElementById("body").appendChild(anzeigeScore);
+
+
+function datenbankSchreiben(): void {
     let formData: FormData = new FormData(document.forms[0]);
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    document.cookie = query.toString();
-    console.log(document.cookie);
-    
-    let cookieSplit: string [] = document.cookie.split(";");
-    let eingabeSpieler: string [] = [];
-    
-    
-    for (let i: number = 0; i < cookieSplit.length; i++) {
-        eingabeSpieler = eingabeSpieler.concat(cookieSplit[i].split("="));
-    }
-    let anzahlKlicks: number = parseInt(eingabeSpieler[1]);
-    console.log(anzahlKlicks);
-    let sekunden: number = parseInt(eingabeSpieler[3]) / 3;
-    let punkte: number = Math.round(80000 / (anzahlKlicks + sekunden));
-    console.log(punkte);
+    let name: string = query.toString();
 
-    let zeit: number = parseInt(eingabeSpieler[3]);
-    let hrs: number = 0;
-    let sec: number = zeit % 60;
-    let min: number = (zeit - sec) / 60;
-    console.log(min);
-    console.log(sec);
-    anzeigeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
-    console.log(anzeigeZeit.textContent);
-    let eintrag: string[] = ["punkte=" + punkte, cookieSplit[1], cookieSplit[2]];
-    console.log(eintrag);
-    eintragDatenbank(eintrag); 
+    let datenbankEintrag: string[] = ["punkte=" + punkte, "sec=" + sek, name, "klicks=" + klicks];
+    //console.log(eintrag);
+    eintragDatenbank(datenbankEintrag); 
     weiterleitungSeite(highscoreEintrag.id);
 }
 

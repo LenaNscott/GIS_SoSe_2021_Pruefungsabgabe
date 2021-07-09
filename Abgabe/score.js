@@ -6,21 +6,34 @@ spielen.addEventListener("click", function () {
 highscoreTabelle();
 let spielerDaten = [];
 async function highscoreTabelle() {
-    let serverUrl = "http://localhost:8100/holenscore"; // https://lenasfancyapp.herokuapp.com
+    let serverUrl = "https://lenasfancyapp.herokuapp.com/holenscore"; //  "http://localhost:8100/holenscore"
     let responseText = await versenden(serverUrl);
-    console.log(responseText);
+    //console.log(responseText);
     spielerDaten = JSON.parse(responseText);
-    console.log(spielerDaten);
+    //console.log(spielerDaten);
     spielerDaten = spielerDaten.sort(function (a, b) {
         return a.punkte - b.punkte;
     });
-    console.log(spielerDaten);
-    for (let i = 0; i < spielerDaten.length - i; i++) {
-        let nameEintrag = document.getElementById("name" + [i + 1]);
-        console.log(spielerDaten[spielerDaten.length - i].name);
-        nameEintrag.innerHTML = spielerDaten[spielerDaten.length - i].name;
-        let punkte = document.getElementById("punkte" + [i + 1]);
-        punkte.innerHTML = spielerDaten[spielerDaten.length - i].punkte.toString();
+    //console.log(spielerDaten);
+    for (let i = 1; i <= 10 && i <= spielerDaten.length; i++) {
+        let nameEintrag = document.getElementById("name" + i);
+        let eintragTabelle;
+        eintragTabelle = spielerDaten[spielerDaten.length - i].name;
+        //console.log(eintragTabelle);
+        nameEintrag.innerHTML = eintragTabelle;
+        //console.log(nameEintrag.innerHTML);
+        let punkte = document.getElementById("punkte" + i);
+        let anzahl = spielerDaten[spielerDaten.length - i].punkte.toString();
+        punkte.innerHTML = anzahl;
+        //console.log(punkte.innerHTML);
+        let zeit = document.getElementById("zeit" + i);
+        let zeitTabelle = secString(spielerDaten[spielerDaten.length - i].sec.toString());
+        zeit.innerHTML = zeitTabelle;
+        //console.log(zeit.innerHTML);
+        let klicks = document.getElementById("klicks" + i);
+        let klicksTabelle = spielerDaten[spielerDaten.length - i].klicks.toString();
+        klicks.innerHTML = klicksTabelle;
+        //console.log(klicks.innerHTML);
     }
 }
 //# sourceMappingURL=score.js.map

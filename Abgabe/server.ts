@@ -61,7 +61,7 @@ export namespace P_3_1Server {
             let loeschendeBilderArray: string[] = loeschendeBilderString.split("&");
             for (let i: number = 0; i < loeschendeBilderArray.length; i++) {
                 let datenbankObjectId: string = loeschendeBilderArray[i];
-                console.log(datenbankObjectId);
+                //console.log(datenbankObjectId);
                 let myquery = {"_id": ObjectId(datenbankObjectId)};
                 eingabe.deleteOne(myquery);
             }            

@@ -27,27 +27,33 @@ let anzeige = document.getElementById("timer");
 let start = document.getElementById("spielstart");
 start.addEventListener("click", function () {
     start.parentNode.removeChild(start);
+    for (let i = 1; i <= 20; i++) {
+        let karte = document.getElementById("nr" + [i]);
+        karte.addEventListener("click", function () {
+            spielKarten(karte);
+        });
+    }
     add();
 });
+let neuStart = document.getElementById("neuesSpiel");
+neuStart.addEventListener("click", reload);
 async function kartenVerteilen() {
     let geholteBilder = await bilderUrlHolen();
-    console.log(geholteBilder);
+    //console.log(geholteBilder);
     let doppelGeholteBilder = kartenMischen(geholteBilder, 10);
-    console.log(doppelGeholteBilder);
+    //console.log(doppelGeholteBilder);
     doppelGeholteBilder = doppelGeholteBilder.concat(doppelGeholteBilder);
     //console.log(doppelGeholteBilder);
-    //gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
-    gemischteKarten = doppelGeholteBilder; //Test
-    console.log(gemischteKarten);
+    gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    //gemischteKarten = doppelGeholteBilder; //Erzeugt sortiertes Array, zum testen
+    //console.log(gemischteKarten);
 }
 function kartenMischen(_arrayBilder, _anzahl) {
     let gefuelltesGemischtesBildArray = [];
     for (let i = 0; i < _anzahl; i++) {
         let randomNumber = Math.floor(Math.random() * _arrayBilder.length);
         let img = _arrayBilder[randomNumber];
-        // let img: bild = geholteBilder[9 - i];  nur zum testen
         gefuelltesGemischtesBildArray.splice(0, 0, img);
-        //let z: number = _arrayBilder.indexOf(img);
         _arrayBilder.splice(randomNumber, 1);
     }
     return gefuelltesGemischtesBildArray;
@@ -154,15 +160,8 @@ async function spielKarten(_karte) {
             await Sleep(2000);
             if (bild1.src == bild2.src) {
                 gefundenePaare += 1;
-                /*
-                for (let i: number = 0; i <= gemischteKarten.length; i++) {
-                 if (gemischteKarten[i].url == bild1.src) {
-                    gemischteKarten.splice(i, 1);
-                }
-                }
-                */
                 let idZahleins = bild1.id.split("d");
-                console.log(idZahleins);
+                //console.log(idZahleins);
                 let nr = "nr" + idZahleins[1];
                 let img1 = document.getElementById(nr);
                 img1.parentNode.removeChild(img1);
@@ -179,13 +178,13 @@ async function spielKarten(_karte) {
             spielende = true;
             stoppen = true;
             klickenVerarbeitet = false;
-            console.log(anzeige.textContent);
-            document.cookie = "klicks =" + anzahlKlicks;
-            document.cookie = "sec =" + sekunden;
-            console.log(document.cookie);
-            console.log(sekunden);
-            console.log(anzahlKlicks);
-            //weiterleitungSeite("eintragSeite");
+            //console.log(anzeige.textContent);
+            document.cookie = "klicks=" + anzahlKlicks;
+            document.cookie = "sec=" + sekunden;
+            //console.log(document.cookie);
+            //console.log(sekunden);
+            //console.log(anzahlKlicks);
+            weiterleitungSeite("eintragSeite");
         }
     }
 }
@@ -221,11 +220,8 @@ function timerAufNull() {
     hrs = 0;
     weiterleitungSeite("start");
 }
-kartenVerteilen();
-for (let i = 1; i <= 20; i++) {
-    let karte = document.getElementById("nr" + [i]);
-    karte.addEventListener("click", function () {
-        spielKarten(karte);
-    });
+function reload() {
+    window.location.href = window.location.href;
 }
+kartenVerteilen();
 //# sourceMappingURL=spiel.js.map
