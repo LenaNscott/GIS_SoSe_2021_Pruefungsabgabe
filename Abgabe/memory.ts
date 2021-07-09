@@ -56,7 +56,7 @@ async function BilderLoeschen(loeschendeImg: string): Promise<void> {
 
 async function eintragDatenbank(_gespielteZeit: string[]): Promise<void> {
 
-    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/eintrag" ;   // "http://localhost:8100/eintrag"
+    let serverUrl: string = "https://lenasfancyapp.herokuapp.com/eintrag";   // "http://localhost:8100/eintrag"
     await versenden(serverUrl + "?" + _gespielteZeit[0] + "&" + _gespielteZeit[1] + "&" + _gespielteZeit[2] + "&" + _gespielteZeit[3]);
     //console.log(responseText);
 }
