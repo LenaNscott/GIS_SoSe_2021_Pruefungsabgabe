@@ -16,9 +16,6 @@ let punkte: number = Math.round(80000 / (klicks + (sek / 3)));
 anzeigeScore.innerHTML = punkte.toString();
 anzeigeZeit.innerHTML = secString(sek.toString());
 
-document.getElementById("body").appendChild(anzeigeZeit);
-document.getElementById("body").appendChild(anzeigeScore);
-
 
 async function datenbankSchreiben(): Promise <void> {
     let formData: FormData = new FormData(document.forms[0]);

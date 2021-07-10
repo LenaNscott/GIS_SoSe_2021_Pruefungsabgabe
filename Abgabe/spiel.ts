@@ -1,6 +1,7 @@
 let klickenVerarbeitet: boolean = true;
 let karteEins: boolean = true;
 let karteZwei: boolean = false;
+let zuletztAngeklicktesBildIndex: string = "";
 
 let spielende: boolean = false;
 let gefundenePaare: number = 0;
@@ -74,98 +75,20 @@ function kartenMischen(_arrayBilder: Bild[], _anzahl: number): Bild[] {
 }
 
 async function spielKarten(_karte: HTMLElement): Promise<void> {
+
+    let neuAngeklicktesBildIndex: string = _karte.id.slice(2);
    
-    if (klickenVerarbeitet == true) {
+    if (klickenVerarbeitet == true && neuAngeklicktesBildIndex != zuletztAngeklicktesBildIndex) {
         anzahlKlicks++;
         klickenVerarbeitet = false;
-        
+                
         let i: HTMLImageElement = document.createElement("img");
-    
-        switch (_karte.id) {
-            case "nr1":
-                i.id = "bild1";
-                i.src = gemischteKarten[0].url;
-                break;
-            case "nr2":
-                i.id = "bild2";
-                i.src = gemischteKarten[1].url;
-                break;
-            case "nr3":
-                i.id = "bild3";
-                i.src = gemischteKarten[2].url;
-                break;
-            case "nr4":
-                i.id = "bild4";
-                i.src = gemischteKarten[3].url;
-                break;
-            case "nr5":
-                i.id = "bild5";
-                i.src = gemischteKarten[4].url;
-                break;
-            case "nr6":
-                i.id = "bild6";
-                i.src = gemischteKarten[5].url;
-                break;
-            case "nr7":
-                i.id = "bild7";
-                i.src = gemischteKarten[6].url;
-                break;
-            case "nr8":
-                i.id = "bild8";
-                i.src = gemischteKarten[7].url;
-                break;
-            case "nr9":
-                i.id = "bild9";
-                i.src = gemischteKarten[8].url;
-                break;
-            case "nr10":
-                i.id = "bild10";
-                i.src = gemischteKarten[9].url;
-                break;
-            case "nr11":
-                i.id = "bild11";
-                i.src = gemischteKarten[10].url;
-                break;
-            case "nr12":
-                i.id = "bild12";
-                i.src = gemischteKarten[11].url;
-                break;
-            case "nr13":
-                i.id = "bild13";
-                i.src = gemischteKarten[12].url;
-                break;
-            case "nr14":
-                i.id = "bild14";
-                i.src = gemischteKarten[13].url;
-                break;
-            case "nr15":
-                i.id = "bild15";
-                i.src = gemischteKarten[14].url;
-                break;
-            case "nr16":
-                i.id = "bild16";
-                i.src = gemischteKarten[15].url;
-                break;
-            case "nr17":
-                i.id = "bild17";
-                i.src = gemischteKarten[16].url;
-                break;
-            case "nr18":
-                i.id = "bild18";
-                i.src = gemischteKarten[17].url;
-                break;
-            case "nr19":
-                i.id = "bild19";
-                i.src = gemischteKarten[18].url;
-                break;
-            case "nr20":
-                i.id = "bild20";
-                i.src = gemischteKarten[19].url;
-                break;
-        }
 
+        i.id = "bild" + neuAngeklicktesBildIndex;
+        i.src = gemischteKarten[parseInt(neuAngeklicktesBildIndex) - 1].url;
 
         if (karteEins == true) {
+            zuletztAngeklicktesBildIndex = neuAngeklicktesBildIndex;
             bild1.src = i.src;
             bild1.id = i.id;
             document.getElementById("body").appendChild(bild1); 
@@ -174,6 +97,7 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
         }
 
         else if (karteEins == false) {
+            zuletztAngeklicktesBildIndex = "";
             bild2.src = i.src;
             bild2.id = i.id;
             document.getElementById("body").appendChild(bild2); 
