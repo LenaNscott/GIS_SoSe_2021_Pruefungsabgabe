@@ -1993,5 +1993,978 @@ img {
     }
 }
 
+@media screen and (max-width: 600px){
+    .menu {
+        overflow: hidden;
+        background-color: black;
+        margin-left: 82%;
+        margin-right: 20%;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        display: inline;
+    }
+    
+    .menu a {
+        float: right;
+        display: table;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 7px;
+        text-decoration: none;
+        font-size: 10px;
+        border-right: 1px solid #f2f2f2;
+        background-color: black;
+    }
+    
+    button {
+        background-color: black;
+        color: white;
+    }
+    
+    a.eins {  
+        color:aqua; 
+    }
+    
+    a:hover {
+        color: #8FBC8F; 
+    }
+    
+    .seite {
+        color: red;
+    }
+    
+    .content {
+        padding: 16px;
+    }
+    
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    .sticky + .content {
+        padding-top: 20px;
+    }
+    
+    #index {
+        color: red;
+    }
+    
+    body {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        font-family: sans-serif;
+        background-color: #000880;
+    }
+    
+    
+    h1{
+        font-size: 30px;
+        text-align: center;
+        padding-top: 30px;
+        color:#8FBC8F;
+        width: 100%;
+        background-position: center;
+    }
+    
+    h2, label {
+        color: #8FBC8F;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    p {
+        color: #8FBC8F;
+        text-align: center;
+        font-size: 14px;
+    }
+    
+    #name {
+        color: #8FBC8F;
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    #nameEintrag {
+        text-align: center;
+        margin-top: 0px;
+        height: 15px;
+        width: auto;
+    }
+    
+    #Formular {
+        text-align: center;
+        padding-top: 10px;
+    }
+    
+    #Eintrag {
+        text-align: center;
+        
+    }
+    
+    
+    table, th, td { 
+        text-align: center;
+        border: 1px solid; 
+        background-color:white;
+        color: #8FBC8F;
+        font-size: 10px;
+        padding: 10px;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    
+    #start {
+        text-align: center;
+        height: auto;
+        width: 100px;
+        font-size: 15px;
+        top: 120px;
+    }
+    
+    #startHome {
+        text-align: center;
+        height: auto;
+        width: 100px;
+        font-size: 15px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+    
+    #erklaertext {
+        text-align: center;
+        top: 280px;
+        padding-top: 6px;
+    }
+    
+    
+    #URL {
+        width: 500px;
+        height: auto;
+        text-align: center;
+    }
+    
+    #url {
+        color: #8FBC8F;
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    img {
+        height: 70px;
+        width: 70px;
+        text-align: center;
+        z-index: 4;
+    }
+    
+    #spielstart {
+        z-index: 6;
+        position: absolute;
+        left: 80px;
+        top: 285px;
+        height: auto;
+        width: 150px;
+        font-size: 30px;
+    }
+    
+    #timer {
+        position: absolute;
+        font-size: 25px;
+        top: 80px;
+        left: 120px;
+        color: #f2f2f2;
+    }
+    
+    #timerAnzeige {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        line-height: 0%;
+        text-align: center;
+        font-size: 50px;
+        color: #f2f2f2;
+    }
+    
+    #punkteAnzeige {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        line-height: 0%;
+        text-align: center;
+        font-size: 50px;
+        color: #f2f2f2;
+    }
+    
+    #p {
+        text-align: center;
+        font-size: 15px;    
+    }
+    
+    #neuesSpiel {
+        position: absolute;
+        height: auto;
+        width: 120px;
+        font-size: 18px;
+        top: 540px;
+        left: 90px;
+    }
+    
+    #fertig {
+       text-align: center;
+       margin-top: 10px;
+        font-size: 15px;
+        width: 70px;
+        height: auto;
+    }
+    
+    #einfuegen {
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        height: auto;
+    
+    }
+    
+    #loeschen {
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        height: auto;
+    }
+    
+    #text {
+       text-align: center;
+       padding-top: 6px;
+    }
+    
+    #anzeige {
+        text-align: center;
+    }
+    
+    #nr1 {
+        position: absolute;
+        border: 10px;
+        top: 120px;
+        left: 10px;
+        
+    }
+    
+    #nr2 {
+        position: absolute;
+        border: 10px;
+        left: 10px;
+        top: 200px;
+    }
+    
+    #nr3 {
+        position: absolute;
+        border: 10px;
+        left: 10px;
+        top: 280px;
+    }
+    
+    #nr4 {
+        position: absolute;
+        border: 10px;
+        left: 10px;
+        top: 360px;
+    }
+    
+    #nr5 {
+        position: absolute;
+        border: 10px;
+        left: 10px;
+        top: 440px;
+    }
+    
+    #nr6 {
+        position: absolute;
+        border: 10px;
+        left: 90px;
+        top: 120px;
+    }
+    
+    #nr7 {
+        position: absolute;
+        border: 10px;
+        left: 90px;
+        top: 200px;
+    }
+    
+    #nr8 {
+        position: absolute;
+        border: 10px;
+        left: 90px;
+        top: 280px;
+    }
+    
+    #nr9 {
+        position: absolute;
+        border: 10px;
+        left: 90px;
+        top: 360px;
+    }
+    
+    #nr10 {
+        position: absolute;
+        border: 10px;
+        left: 90px;
+        top: 440px;
+    }
+    
+    #nr11 {
+        position: absolute;
+        border: 10px;
+        left: 170px;
+        top: 120px;
+    }
+    
+    #nr12 {
+        position: absolute;
+        border: 10px;
+        left: 170px;
+        top: 200px;
+    }
+    
+    
+    #nr13 {
+        position: absolute;
+        border: 10px;
+        left: 170px;
+        top: 280px;
+    }
+    
+    #nr14 {
+        position: absolute;
+        border: 10px;
+        left: 170px;
+        top: 360px;
+    }
+    
+    #nr15 {
+        position: absolute;
+        border: 10px;
+        left: 170px;
+        top: 440px;
+    }
+    
+    #nr16 {
+        position: absolute;
+        border: 10px;
+        left: 250px;
+        top: 120px;
+    }
+    
+    #nr17 {
+        position: absolute;
+        border: 10px;
+        left: 250px;
+        top: 200px;
+    }
+    
+    #nr18 {
+        position: absolute;
+        border: 10px;
+        left: 250px;
+        top: 280px;
+    }
+    
+    #nr19 {
+        position: absolute;
+        border: 10px;
+        left: 250px;
+        top: 360px;
+    }
+    
+    #nr20 {
+        position: absolute;
+        border: 10px;
+        left: 250px;
+        top: 440px;
+    }
+    
+    #bild1 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild1;
+    }
+    @keyframes bild1 {
+        
+        from {
+            
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            
+            height: 70px;
+            width: 70px;
+            top: 120px;
+            left: 10px;
+        }
+    }
+    
+    #bild2 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild2;
+    }
+    @keyframes bild2 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            top: 200px;
+            left: 10px;
+        }
+    }
+    
+    #bild3 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild3;
+    }
+    @keyframes bild3 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            top: 280px;
+            left: 10px;
+        }
+    }
+    
+    #bild4 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild4;
+    }
+    @keyframes bild4 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            top: 360px;
+            left: 10px;
+        }
+    }
+    
+    #bild5 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild5;
+    }
+    @keyframes bild5 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            top: 440px;
+            left: 10px;
+        }
+    }
+    
+    #bild6 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild6;
+    }
+    @keyframes bild6 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 90px;
+            top: 120px;
+        }
+    }
+    
+    #bild7 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild7;
+    }
+    @keyframes bild7 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 90px;
+            top: 200px;
+        }
+    }
+    
+    #bild8 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild8;
+    }
+    @keyframes bild8 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 90px;
+            top: 280px;
+        }
+    }
+    
+    #bild9 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild9;
+    }
+    @keyframes bild9 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 90px;
+            top: 360px;
+        }
+    }
+    
+    #bild10 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild10;
+    }
+    @keyframes bild10 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 90px;
+            top: 440px;
+        }
+    }
+    
+    #bild11 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild11;
+    }
+    @keyframes bild11 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 170px;
+            top: 120px;
+        }
+    }
+    
+    #bild12 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild12;
+    }
+    @keyframes bild12 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 170px;
+            top: 200px;
+        }
+    }
+    
+    #bild13 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild13;
+    }
+    @keyframes bild13 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 170px;
+            top: 280px;
+        }
+    }
+    
+    #bild14 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild14;
+    }
+    @keyframes bild14 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 170px;
+            top: 360px;
+        }
+    }
+    
+    #bild15 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild15;
+    }
+    @keyframes bild15 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 170px;
+            top: 440px;
+        }
+    }
+    
+    #bild16 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild16;
+    }
+    @keyframes bild16 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 250px;
+            top: 120px;
+        }
+    }
+    
+    #bild17 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild17;
+    }
+    @keyframes bild17 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 250px;
+            top: 200px;
+        }
+    }
+    
+    #bild18 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild18;
+    }
+    @keyframes bild18 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 250px;
+            top: 280px;
+        }
+    }
+    
+    #bild19 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild19;
+    }
+    @keyframes bild19 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 250px;
+            top: 360px;
+        }
+    }
+    
+    #bild20 {
+        width: 150px;
+        height: 150px;
+        left: 90px;
+        top: 240px;
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: bild20;
+    }
+    @keyframes bild20 {
+        
+        from {
+            width: 150px;
+            height: 150px;
+            left: 90px;
+            top: 240px;
+        }
+    
+        to {
+            height: 70px;
+            width: 70px;
+            left: 250px;
+            top: 440px;
+        }
+    }
+    
+    #move1 {
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: move;
+    }
+    
+    @keyframes move {
+        from {
+            width: 70px;
+            height: 70px;
+        }
+    
+        to {
+            width: 0px;
+            height: 0px;
+        }
+    }
+    
+    #move2 {
+        animation-duration: 0.5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        animation-name: move;
+    }
+    
+    @keyframes move {
+        from {
+            width: 70px;
+            height: 70px;
+        }
+    
+        to {
+            width: 0px;
+            height: 0px;
+        }
+    }
+}
 
 
