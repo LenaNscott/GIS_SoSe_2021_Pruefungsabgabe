@@ -12,8 +12,8 @@ interface HighscoreEintrag {
 
 let bilderArray: Bild[];
 //let bilderAdminAnzeigen: boolean = false;
-//let serverBaseUrl: string = "https://lenasfancyapp.herokuapp.com";
-let serverBaseUrl: string = "http://localhost:8100";
+let serverBaseUrl: string = "https://lenasfancyapp.herokuapp.com";
+//let serverBaseUrl: string = "http://localhost:8100";
 
 
 
