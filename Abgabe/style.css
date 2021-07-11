@@ -2292,10 +2292,10 @@ img {
     #video {
         position: absolute;
         z-index: 10;
-        height: 400px;
-        width: 400px;
+        height: 380px;
+        width: 380px;
         top: 15px;
-        left: 20px;
+        left: 15px;
     }
 
     #nr1 {
