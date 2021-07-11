@@ -1243,10 +1243,10 @@ img {
     #video {
         position: absolute;
         z-index: 10;
-        height: 800px;
-        width: 800px;
-        top: 30px;
-        left: 50px;
+        height: 600px;
+        width: 600px;
+        top: 25px;
+        left: 30px;
     }
     
     #nr1 {
