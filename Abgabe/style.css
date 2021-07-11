@@ -106,8 +106,8 @@ p, h2, label {
 
 table, th, td { 
     border: 1px solid; 
-    background-color:white;
-    color: #8FBC8F;
+    background-color: white;
+    color: #000880;
     font-size: 30px;
     padding: 10px;
     text-align: center;
@@ -1104,7 +1104,7 @@ img {
         text-align: center;
         border: 1px solid; 
         background-color:white;
-        color: #8FBC8F;
+        color: #000880;
         font-size: 20px;
         padding: 10px;
         margin-top: 60px;
@@ -2154,7 +2154,7 @@ img {
         text-align: center;
         border: 1px solid; 
         background-color:white;
-        color: #8FBC8F;
+        color: #000880;
         font-size: 10px;
         padding: 12px;
         margin-top: 60px;

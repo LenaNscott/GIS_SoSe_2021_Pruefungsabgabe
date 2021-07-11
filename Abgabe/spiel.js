@@ -105,11 +105,6 @@ async function spielKarten(_karte) {
     }
 }
 //"
-function sleep(_milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, _milliseconds)); // kurze pause, sleep Funktion, Quelle: https://www.sitepoint.com/delay-sleep-pause-wait/
-}
-//"
-//"
 function timerLaeuft() {
     if (stoppen == false) {
         sec++;

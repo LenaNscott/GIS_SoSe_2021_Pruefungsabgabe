@@ -28,15 +28,15 @@ async function versenden(_serverUrl: string): Promise<string> {
 
 
 async function bildUrlHinzufuegen(): Promise<void> {
-    let serverUrl: string = serverBaseUrl + "/abschicken";
-    
     let formData: FormData = new FormData(document.forms[0]); 
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    await versenden(serverUrl + "?" + query.toString());
- 
-    let pname: string = window.location.pathname;
-    let geschnittenerPathname: string = pname.slice(0, pname.lastIndexOf("/"));
-    window.location.pathname = geschnittenerPathname + "/admin.html";
+    if (query.toString().length == 0) {
+        let serverUrl: string = serverBaseUrl + "/abschicken";
+        await versenden(serverUrl + "?" + query.toString());
+        let pname: string = window.location.pathname;
+        let geschnittenerPathname: string = pname.slice(0, pname.lastIndexOf("/"));
+        window.location.pathname = geschnittenerPathname + "/admin.html";
+    }
 }
 
 async function bilderUrlHolen(): Promise<Bild[]> {
@@ -101,3 +101,9 @@ function zeitString(_zeitSec: string): string { //sekunden werden in Timer --> 0
     zeitAnzeige = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec); 
     return zeitAnzeige;
 }
+
+//"
+function sleep(_milliseconds: number): Promise<void> { 
+    return new Promise(resolve => setTimeout(resolve, _milliseconds)); // kurze pause, sleep Funktion, Quelle: https://www.sitepoint.com/delay-sleep-pause-wait/
+   }
+//"

@@ -9,20 +9,21 @@ cookiesSplit = document.cookie.split("; ");
 let klicks: number = parseInt(cookiesSplit[0].split("=")[1]);
 let sek: number = parseInt(cookiesSplit[1].split("=")[1]);
 let punkte: number = Math.round(80000 / (klicks + (sek / 3)));
+anzeigeScore.innerHTML = punkte.toString();
+anzeigeZeit.innerHTML = zeitString(sek.toString());
 
 let video: HTMLVideoElement = document.createElement("video");
 video.id = "video";
 video.src = "Medien/video.mp4";
-video.autoplay = true;
 video.playsInline = true;
 video.load();
 document.getElementById("body").appendChild(video);
-video.onended = function(): void {
+video.onended = function (): void {
     document.getElementById("body").removeChild(video);
-    anzeigeScore.innerHTML = punkte.toString();
-    anzeigeZeit.innerHTML = zeitString(sek.toString());
-    buttonDatenbankEintrag.addEventListener("click", datenbankSchreiben);
 };
+video.play();
+
+listenerNachVideo();
 
 async function datenbankSchreiben(): Promise <void> {
     let formData: FormData = new FormData(document.forms[0]);
@@ -33,4 +34,9 @@ async function datenbankSchreiben(): Promise <void> {
     //console.log(datenbankEintrag);
     await eintragDatenbank(datenbankEintragDaten); 
     weiterleitungSeite(buttonDatenbankEintrag.id);
+}
+
+async function listenerNachVideo(): Promise<void> {
+    await sleep(8000);
+    buttonDatenbankEintrag.addEventListener("click", datenbankSchreiben);
 }

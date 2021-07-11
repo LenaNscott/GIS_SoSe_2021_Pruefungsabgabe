@@ -134,11 +134,6 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
 }
 
 //"
-function sleep(_milliseconds: number): Promise<void> { 
-    return new Promise(resolve => setTimeout(resolve, _milliseconds)); // kurze pause, sleep Funktion, Quelle: https://www.sitepoint.com/delay-sleep-pause-wait/
-   }
-//"
-//"
 function timerLaeuft(): void { // Quelle: https://www.delftstack.com/de/howto/javascript/javascript-stopwatch/
     if (stoppen == false) {
         sec++;

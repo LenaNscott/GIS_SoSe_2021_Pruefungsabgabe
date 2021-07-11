@@ -10,13 +10,15 @@ async function versenden(_serverUrl) {
     return responseText;
 }
 async function bildUrlHinzufuegen() {
-    let serverUrl = serverBaseUrl + "/abschicken";
     let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);
-    await versenden(serverUrl + "?" + query.toString());
-    let pname = window.location.pathname;
-    let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
-    window.location.pathname = geschnittenerPathname + "/admin.html";
+    if (query.toString().length == 0) {
+        let serverUrl = serverBaseUrl + "/abschicken";
+        await versenden(serverUrl + "?" + query.toString());
+        let pname = window.location.pathname;
+        let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
+        window.location.pathname = geschnittenerPathname + "/admin.html";
+    }
 }
 async function bilderUrlHolen() {
     let serverUrl = serverBaseUrl + "/holen";
@@ -68,4 +70,9 @@ function zeitString(_zeitSec) {
     zeitAnzeige = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
     return zeitAnzeige;
 }
+//"
+function sleep(_milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, _milliseconds)); // kurze pause, sleep Funktion, Quelle: https://www.sitepoint.com/delay-sleep-pause-wait/
+}
+//"
 //# sourceMappingURL=allgemein.js.map
