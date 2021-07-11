@@ -156,7 +156,7 @@ function timerLaeuft(): void { // Quelle: https://www.delftstack.com/de/howto/ja
 
 function add(): void {
     timerLaeuft();
-    anzeigeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    anzeigeLaufendeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
     timer();
 }
 
@@ -165,7 +165,7 @@ function timer(): void {
 }
    
 function timerAufNull(): void {
-    anzeigeZeit.textContent = "00:00:00";
+    anzeigeLaufendeZeit.textContent = "00:00:00";
     sec = 0; 
     min = 0; 
     hrs = 0;

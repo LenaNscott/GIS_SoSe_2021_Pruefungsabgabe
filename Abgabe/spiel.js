@@ -126,14 +126,14 @@ function timerLaeuft() {
 }
 function add() {
     timerLaeuft();
-    anzeigeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    anzeigeLaufendeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
     timer();
 }
 function timer() {
     setTimeout(add, 1000);
 }
 function timerAufNull() {
-    anzeigeZeit.textContent = "00:00:00";
+    anzeigeLaufendeZeit.textContent = "00:00:00";
     sec = 0;
     min = 0;
     hrs = 0;
