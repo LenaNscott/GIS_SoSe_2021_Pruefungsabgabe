@@ -13,6 +13,7 @@ let video = document.createElement("video");
 video.id = "video";
 video.src = "Medien/NeverGonnaGiveYouUpVideo.mp4";
 video.autoplay = true;
+video.playsInline = true;
 video.load();
 document.getElementById("body").appendChild(video);
 video.onended = function () {
