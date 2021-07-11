@@ -1236,7 +1236,7 @@ img {
     #meme {
         position: absolute;
         top: 700px;
-        left: 350px;
+        left: 325px;
         height: 300px;
         width: 300px;
     }
@@ -2283,7 +2283,7 @@ img {
     #meme {
         position: absolute;
         top: 630px;
-        left: 200px;
+        left: 150px;
         height: 200px;
         width: 200px;
     }
@@ -2293,7 +2293,7 @@ img {
         position: absolute;
         z-index: 10;
         height: 500px;
-        width: 50px;
+        width: 500px;
         top: 20px;
         left: 30px;
     }
