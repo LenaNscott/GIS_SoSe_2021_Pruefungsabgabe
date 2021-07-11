@@ -11,13 +11,13 @@ let loeschendeBilder: string[] = [];
 bilderAnzeigen();
 
 
-async function bilderAnzeigen(): Promise<void> {
+async function bilderAnzeigen(): Promise<void> { 
     
-    let adminBilderArray: Bild[] = await bilderUrlHolen();
+    let adminBilderArray: Bild[] = await bilderUrlHolen(); //Bilderurl werden aus der Datenbank geladen
 
     for (let i: number = 0; i < adminBilderArray.length; i++) {
 
-        let adminBild: HTMLImageElement = document.createElement("img");
+        let adminBild: HTMLImageElement = document.createElement("img"); //mit schleife bekommt jedes IMG unterschiedliche url, id und Position
         adminBild.src = bilderArray[i].url;
         adminBild.title = bilderArray[i]._id;
 

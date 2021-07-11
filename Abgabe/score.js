@@ -10,8 +10,8 @@ async function highscoreTabelle() {
     let scoreStringDatenbank = await scoreHolen();
     spielerDaten = JSON.parse(scoreStringDatenbank);
     //console.log(spielerDaten);
-    spielerDaten = spielerDaten.sort(function (a, b) {
-        return a.punkte - b.punkte;
+    spielerDaten = spielerDaten.sort(function (_a, _b) {
+        return _a.punkte - _b.punkte;
     });
     //console.log(spielerDaten);
     for (let i = 1; i <= 10 && i <= spielerDaten.length; i++) {

@@ -8,9 +8,9 @@ let aktuelleBilder = [];
 let loeschendeBilder = [];
 bilderAnzeigen();
 async function bilderAnzeigen() {
-    let adminBilderArray = await bilderUrlHolen();
+    let adminBilderArray = await bilderUrlHolen(); //Bilderurl werden aus der Datenbank geladen
     for (let i = 0; i < adminBilderArray.length; i++) {
-        let adminBild = document.createElement("img");
+        let adminBild = document.createElement("img"); //mit schleife bekommt jedes IMG unterschiedliche url, id und Position
         adminBild.src = bilderArray[i].url;
         adminBild.title = bilderArray[i]._id;
         adminBild.style.position = "relativ";

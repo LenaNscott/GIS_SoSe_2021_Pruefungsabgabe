@@ -17,7 +17,7 @@ video.autoplay = true;
 video.playsInline = true;
 video.load();
 document.getElementById("body").appendChild(video);
-video.onended = function() {
+video.onended = function(): void {
     document.getElementById("body").removeChild(video);
     anzeigeScore.innerHTML = punkte.toString();
     anzeigeZeit.innerHTML = zeitString(sek.toString());

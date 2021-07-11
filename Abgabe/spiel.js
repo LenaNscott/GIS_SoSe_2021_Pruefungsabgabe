@@ -33,11 +33,11 @@ neuStart.addEventListener("click", reload);
 async function kartenVerteilen() {
     let geholteBilder = await bilderUrlHolen();
     //console.log(geholteBilder);
-    let doppelGeholteBilder = kartenMischen(geholteBilder, 10);
+    let doppelGeholteBilder = kartenMischen(geholteBilder, 10); //es werden 10 Karten gemischt zurück gegeben 
     //console.log(doppelGeholteBilder);
     doppelGeholteBilder = doppelGeholteBilder.concat(doppelGeholteBilder);
     //console.log(doppelGeholteBilder);
-    gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    gemischteKarten = kartenMischen(doppelGeholteBilder, 20); //es werden 20 Karten gemischt zurück gegeben
     //gemischteKarten = doppelGeholteBilder; //Erzeugt sortiertes Array, zum testen
     //console.log(gemischteKarten);
 }
@@ -53,7 +53,7 @@ function kartenMischen(_arrayBilder, _anzahl) {
 }
 async function spielKarten(_karte) {
     let neuAngeklicktesBildIndex = _karte.id.slice(2);
-    if (klickenVerarbeitet == true && neuAngeklicktesBildIndex != zuletztAngeklicktesBildIndex) {
+    if (klickenVerarbeitet == true && neuAngeklicktesBildIndex != zuletztAngeklicktesBildIndex) { //wenn die id nicht die gleiche ist
         anzahlKlicks++;
         klickenVerarbeitet = false;
         let i = document.createElement("img");
@@ -76,7 +76,7 @@ async function spielKarten(_karte) {
             await sleep(2000);
             if (erstesAngeklicktesBild.src == zweitesAngeklicktesBild.src) {
                 gefundenePaare += 1;
-                let idZahleins = erstesAngeklicktesBild.id.split("d");
+                let idZahleins = erstesAngeklicktesBild.id.split("d"); //die id des HTML Elements herausfinden und loeschen
                 //console.log(idZahleins);
                 let nr = "nr" + idZahleins[1];
                 let img1 = document.getElementById(nr);
@@ -104,9 +104,12 @@ async function spielKarten(_karte) {
         }
     }
 }
+//"
 function sleep(_milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, _milliseconds));
+    return new Promise(resolve => setTimeout(resolve, _milliseconds)); // kurze pause, sleep Funktion, Quelle: https://www.sitepoint.com/delay-sleep-pause-wait/
 }
+//"
+//"
 function timerLaeuft() {
     if (stoppen == false) {
         sec++;
@@ -136,6 +139,7 @@ function timerAufNull() {
     hrs = 0;
     weiterleitungSeite("start");
 }
+//"
 function reload() {
     window.location.href = window.location.href;
 }

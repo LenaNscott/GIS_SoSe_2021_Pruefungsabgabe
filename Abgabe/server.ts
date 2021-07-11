@@ -6,8 +6,9 @@ import * as Mongo from "mongodb";
 export namespace P_3_1Server { 
     let eingabe: Mongo.Collection;
     let eingabe2: Mongo.Collection;
-    const {ObjectId} = require("mongodb");
-
+    //"
+    const {ObjectId} = require("mongodb"); // Quelle: https://stackoverflow.com/questions/21076460/how-to-convert-a-string-to-objectid-in-nodejs-mongodb-native-driver/41259014
+    //"
     console.log("Starting server"); 
     let port: number = Number(process.env.PORT); 
     if (!port) 
@@ -62,7 +63,7 @@ export namespace P_3_1Server {
             for (let i: number = 0; i < loeschendeBilderArray.length; i++) {
                 let datenbankObjectId: string = loeschendeBilderArray[i];
                 //console.log(datenbankObjectId);
-                let myquery = {"_id": ObjectId(datenbankObjectId)};
+                let myquery: Object = {"_id": ObjectId(datenbankObjectId)};
                 eingabe.deleteOne(myquery);
             }            
             _response.write("Geloescht");   

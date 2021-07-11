@@ -44,17 +44,17 @@ async function kartenVerteilen(): Promise<void> {
 
     let geholteBilder: Bild[] = await bilderUrlHolen();
     //console.log(geholteBilder);
-    let doppelGeholteBilder: Bild[] = kartenMischen(geholteBilder, 10);
+    let doppelGeholteBilder: Bild[] = kartenMischen(geholteBilder, 10); //es werden 10 Karten gemischt zurück gegeben 
     //console.log(doppelGeholteBilder);
     doppelGeholteBilder = doppelGeholteBilder.concat(doppelGeholteBilder);
     //console.log(doppelGeholteBilder);
     
-    gemischteKarten = kartenMischen(doppelGeholteBilder, 20);
+    gemischteKarten = kartenMischen(doppelGeholteBilder, 20); //es werden 20 Karten gemischt zurück gegeben
     //gemischteKarten = doppelGeholteBilder; //Erzeugt sortiertes Array, zum testen
     //console.log(gemischteKarten);
 }
 
-function kartenMischen(_arrayBilder: Bild[], _anzahl: number): Bild[] {
+function kartenMischen(_arrayBilder: Bild[], _anzahl: number): Bild[] { //es wir eine nummer genommen und ans array angehaengt
     
     let gefuelltesGemischtesBildArray: Bild[] = [];
     for (let i: number = 0; i < _anzahl; i++) {
@@ -70,14 +70,14 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
 
     let neuAngeklicktesBildIndex: string = _karte.id.slice(2);
    
-    if (klickenVerarbeitet == true && neuAngeklicktesBildIndex != zuletztAngeklicktesBildIndex) {
+    if (klickenVerarbeitet == true && neuAngeklicktesBildIndex != zuletztAngeklicktesBildIndex) { //wenn die id nicht die gleiche ist
         anzahlKlicks++;
         klickenVerarbeitet = false;
                 
         let i: HTMLImageElement = document.createElement("img");
 
         i.id = "bild" + neuAngeklicktesBildIndex;
-        i.src = gemischteKarten[parseInt(neuAngeklicktesBildIndex) - 1].url;
+        i.src = gemischteKarten[parseInt(neuAngeklicktesBildIndex) - 1].url; 
 
         if (karteEins == true) {
             zuletztAngeklicktesBildIndex = neuAngeklicktesBildIndex;
@@ -100,7 +100,7 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
             if (erstesAngeklicktesBild.src == zweitesAngeklicktesBild.src) {
                 gefundenePaare += 1;
              
-                let idZahleins: string [] = erstesAngeklicktesBild.id.split("d");
+                let idZahleins: string [] = erstesAngeklicktesBild.id.split("d"); //die id des HTML Elements herausfinden und loeschen
                 //console.log(idZahleins);
                 let nr: string = "nr" + idZahleins[1];
                 let img1: HTMLElement = document.getElementById(nr);
@@ -133,13 +133,13 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
     }
 }
 
-
-function sleep(_milliseconds: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, _milliseconds));
+//"
+function sleep(_milliseconds: number): Promise<void> { 
+    return new Promise(resolve => setTimeout(resolve, _milliseconds)); // kurze pause, sleep Funktion, Quelle: https://www.sitepoint.com/delay-sleep-pause-wait/
    }
-
-
-function timerLaeuft(): void {
+//"
+//"
+function timerLaeuft(): void { // Quelle: https://www.delftstack.com/de/howto/javascript/javascript-stopwatch/
     if (stoppen == false) {
         sec++;
         sekunden++;
@@ -171,7 +171,7 @@ function timerAufNull(): void {
     hrs = 0;
     weiterleitungSeite("start");
 }
-
+//"
 function reload(): void {
     window.location.href = window.location.href;
 }

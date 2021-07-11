@@ -12,8 +12,8 @@ interface HighscoreEintrag {
 
 let bilderArray: Bild[];
 //let bilderAdminAnzeigen: boolean = false;
-let serverBaseUrl: string = "https://lenasfancyapp.herokuapp.com";
-//let serverBaseUrl: string = "http://localhost:8100";
+//let serverBaseUrl: string = "https://lenasfancyapp.herokuapp.com";
+let serverBaseUrl: string = "http://localhost:8100";
 
 
 
@@ -90,7 +90,7 @@ function weiterleitungSeite(_id: string): void {
     }
 }
 
-function zeitString(_zeitSec: string): string {
+function zeitString(_zeitSec: string): string { //sekunden werden in Timer --> 00:00:00 umgewandelt
     let zeitAnzeige: string;
     let zeit: number = parseInt(_zeitSec);
     let hrs: number = 0;
@@ -98,6 +98,6 @@ function zeitString(_zeitSec: string): string {
     let min: number = (zeit - sec) / 60;
     //console.log(min);
     //console.log(sec);
-    zeitAnzeige = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    zeitAnzeige = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec); 
     return zeitAnzeige;
 }

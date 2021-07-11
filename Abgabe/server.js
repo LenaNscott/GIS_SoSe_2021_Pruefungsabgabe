@@ -8,7 +8,9 @@ var P_3_1Server;
 (function (P_3_1Server) {
     let eingabe;
     let eingabe2;
-    const { ObjectId } = require("mongodb");
+    //"
+    const { ObjectId } = require("mongodb"); // Quelle: https://stackoverflow.com/questions/21076460/how-to-convert-a-string-to-objectid-in-nodejs-mongodb-native-driver/41259014
+    //"
     console.log("Starting server");
     let port = Number(process.env.PORT);
     if (!port)
