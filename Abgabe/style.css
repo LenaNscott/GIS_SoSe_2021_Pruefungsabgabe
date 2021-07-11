@@ -2283,7 +2283,7 @@ img {
     #meme {
         position: absolute;
         top: 630px;
-        left: 200px;
+        left: 250px;
         height: 200px;
         width: 200px;
     }
@@ -2292,10 +2292,10 @@ img {
     #video {
         position: absolute;
         z-index: 10;
-        height: 250px;
-        width: 250px;
-        top: 100px;
-        left: 100px;
+        height: 300px;
+        width: 300px;
+        top: 200px;
+        left: 300px;
     }
 
     #nr1 {
