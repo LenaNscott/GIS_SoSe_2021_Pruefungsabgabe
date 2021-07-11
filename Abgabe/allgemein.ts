@@ -11,15 +11,15 @@ interface HighscoreEintrag {
 }
 
 let bilderArray: Bild[];
-let bilderAdminAnzeigen: boolean = false;
+//let bilderAdminAnzeigen: boolean = false;
 let serverBaseUrl: string = "https://lenasfancyapp.herokuapp.com";
 //let serverBaseUrl: string = "http://localhost:8100";
 
 
 
-async function versenden(serverUrl: string): Promise<string> {
+async function versenden(_serverUrl: string): Promise<string> {
     
-    let response: Response = await fetch(serverUrl);
+    let response: Response = await fetch(_serverUrl);
     //console.log(response);
     let responseText: string = await response.text();
     return responseText;  
@@ -50,16 +50,16 @@ async function bilderUrlHolen(): Promise<Bild[]> {
 }
 
 
-async function BilderLoeschen(loeschendeImg: string): Promise<void> {
+async function bilderLoeschen(_loeschendeImg: string): Promise<void> {
     let serverUrl: string = serverBaseUrl + "/loeschen";
     //console.log(loeschendeImg);
-    await versenden(serverUrl + "?" + loeschendeImg);
+    await versenden(serverUrl + "?" + _loeschendeImg);
 }
 
-async function eintragDatenbank(dbParameter: string[]): Promise<void> {
+async function eintragDatenbank(_spielerDaten: string[]): Promise<void> {
 
     let serverUrl: string = serverBaseUrl + "/eintrag";
-    await versenden(serverUrl + "?" + dbParameter[0] + "&" + dbParameter[1] + "&" + dbParameter[2] + "&" + dbParameter[3]);
+    await versenden(serverUrl + "?" + _spielerDaten[0] + "&" + _spielerDaten[1] + "&" + _spielerDaten[2] + "&" + _spielerDaten[3]);
     //console.log(responseText);
 }
 
@@ -90,7 +90,7 @@ function weiterleitungSeite(_id: string): void {
     }
 }
 
-function secString(_zeitSec: string): string {
+function zeitString(_zeitSec: string): string {
     let zeitAnzeige: string;
     let zeit: number = parseInt(_zeitSec);
     let hrs: number = 0;

@@ -41,25 +41,25 @@ async function bilderAnzeigen(): Promise<void> {
 }
 
 
-function auswahlBilder(angeklicktesBild: HTMLImageElement): void {
+function auswahlBilder(_angeklicktesBild: HTMLImageElement): void {
   
-    if (angeklicktesBild.style.border == "") {
-        angeklicktesBild.style.border = "solid";
-        angeklicktesBild.style.borderColor = "#FF0000";
-        loeschendeBilder.splice(0, 0, angeklicktesBild.title);
+    if (_angeklicktesBild.style.border == "") {
+        _angeklicktesBild.style.border = "solid";
+        _angeklicktesBild.style.borderColor = "#FF0000";
+        loeschendeBilder.splice(0, 0, _angeklicktesBild.title);
         //loeschendeBilder.splice(0, 0, angeklicktesBild.src);
     }
 
     else {
-        angeklicktesBild.style.border = "";
-        loeschendeBilder.splice(loeschendeBilder.indexOf(angeklicktesBild.title), 1);
+        _angeklicktesBild.style.border = "";
+        loeschendeBilder.splice(loeschendeBilder.indexOf(_angeklicktesBild.title), 1);
     }
 }
 
 
 async function auswahlLoeschen(): Promise<void> {
     let loeschendeBilderString: string = loeschendeBilder.join("&");
-    await BilderLoeschen(loeschendeBilderString);
+    await bilderLoeschen(loeschendeBilderString);
     //console.log(loeschendeBilder);
     let pname: string = window.location.pathname;
     let geschnittenerPathname: string = pname.slice(0, pname.lastIndexOf("/"));

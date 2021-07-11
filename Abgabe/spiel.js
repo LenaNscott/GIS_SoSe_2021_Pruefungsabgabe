@@ -6,17 +6,17 @@ let zuletztAngeklicktesBildIndex = "";
 let spielende = false;
 let gefundenePaare = 0;
 let gemischteKarten;
-let bild1 = document.createElement("img");
-bild1.style.position = "absolute";
-let bild2 = document.createElement("img");
-bild2.style.position = "absolute";
+let erstesAngeklicktesBild = document.createElement("img");
+erstesAngeklicktesBild.style.position = "absolute";
+let zweitesAngeklicktesBild = document.createElement("img");
+zweitesAngeklicktesBild.style.position = "absolute";
 let sec = 0;
 let min = 0;
 let hrs = 0;
 let sekunden = 0;
 let stoppen = false;
 let anzahlKlicks = 0;
-let anzeige = document.getElementById("timer");
+let anzeigeLaufendeZeit = document.getElementById("timer");
 let start = document.getElementById("spielstart");
 start.addEventListener("click", function () {
     start.parentNode.removeChild(start);
@@ -61,33 +61,33 @@ async function spielKarten(_karte) {
         i.src = gemischteKarten[parseInt(neuAngeklicktesBildIndex) - 1].url;
         if (karteEins == true) {
             zuletztAngeklicktesBildIndex = neuAngeklicktesBildIndex;
-            bild1.src = i.src;
-            bild1.id = i.id;
-            document.getElementById("body").appendChild(bild1);
+            erstesAngeklicktesBild.src = i.src;
+            erstesAngeklicktesBild.id = i.id;
+            document.getElementById("body").appendChild(erstesAngeklicktesBild);
             karteEins = false;
             klickenVerarbeitet = true;
         }
         else if (karteEins == false) {
             zuletztAngeklicktesBildIndex = "";
-            bild2.src = i.src;
-            bild2.id = i.id;
-            document.getElementById("body").appendChild(bild2);
+            zweitesAngeklicktesBild.src = i.src;
+            zweitesAngeklicktesBild.id = i.id;
+            document.getElementById("body").appendChild(zweitesAngeklicktesBild);
             karteEins = true;
-            await Sleep(2000);
-            if (bild1.src == bild2.src) {
+            await sleep(2000);
+            if (erstesAngeklicktesBild.src == zweitesAngeklicktesBild.src) {
                 gefundenePaare += 1;
-                let idZahleins = bild1.id.split("d");
+                let idZahleins = erstesAngeklicktesBild.id.split("d");
                 //console.log(idZahleins);
                 let nr = "nr" + idZahleins[1];
                 let img1 = document.getElementById(nr);
                 img1.parentNode.removeChild(img1);
-                let idZahlZwei = bild2.id.split("d");
+                let idZahlZwei = zweitesAngeklicktesBild.id.split("d");
                 let nr2 = "nr" + idZahlZwei[1];
                 let img2 = document.getElementById(nr2);
                 img2.parentNode.removeChild(img2);
             }
-            document.getElementById("body").removeChild(bild1);
-            document.getElementById("body").removeChild(bild2);
+            document.getElementById("body").removeChild(erstesAngeklicktesBild);
+            document.getElementById("body").removeChild(zweitesAngeklicktesBild);
             klickenVerarbeitet = true;
         }
         if (gefundenePaare == 10) {
@@ -104,8 +104,8 @@ async function spielKarten(_karte) {
         }
     }
 }
-function Sleep(milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
+function sleep(_milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, _milliseconds));
 }
 function timerLaeuft() {
     if (stoppen == false) {
@@ -123,14 +123,14 @@ function timerLaeuft() {
 }
 function add() {
     timerLaeuft();
-    anzeige.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    anzeigeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
     timer();
 }
 function timer() {
     setTimeout(add, 1000);
 }
 function timerAufNull() {
-    anzeige.textContent = "00:00:00";
+    anzeigeZeit.textContent = "00:00:00";
     sec = 0;
     min = 0;
     hrs = 0;

@@ -1,10 +1,10 @@
 "use strict";
 let bilderArray;
-let bilderAdminAnzeigen = false;
+//let bilderAdminAnzeigen: boolean = false;
 let serverBaseUrl = "https://lenasfancyapp.herokuapp.com";
 //let serverBaseUrl: string = "http://localhost:8100";
-async function versenden(serverUrl) {
-    let response = await fetch(serverUrl);
+async function versenden(_serverUrl) {
+    let response = await fetch(_serverUrl);
     //console.log(response);
     let responseText = await response.text();
     return responseText;
@@ -26,14 +26,14 @@ async function bilderUrlHolen() {
     //console.log(bilderArray);
     return bilderArray;
 }
-async function BilderLoeschen(loeschendeImg) {
+async function bilderLoeschen(_loeschendeImg) {
     let serverUrl = serverBaseUrl + "/loeschen";
     //console.log(loeschendeImg);
-    await versenden(serverUrl + "?" + loeschendeImg);
+    await versenden(serverUrl + "?" + _loeschendeImg);
 }
-async function eintragDatenbank(dbParameter) {
+async function eintragDatenbank(_spielerDaten) {
     let serverUrl = serverBaseUrl + "/eintrag";
-    await versenden(serverUrl + "?" + dbParameter[0] + "&" + dbParameter[1] + "&" + dbParameter[2] + "&" + dbParameter[3]);
+    await versenden(serverUrl + "?" + _spielerDaten[0] + "&" + _spielerDaten[1] + "&" + _spielerDaten[2] + "&" + _spielerDaten[3]);
     //console.log(responseText);
 }
 async function scoreHolen() {
@@ -57,7 +57,7 @@ function weiterleitungSeite(_id) {
         window.location.pathname = geschnittenerPathname + "/eintrag.html";
     }
 }
-function secString(_zeitSec) {
+function zeitString(_zeitSec) {
     let zeitAnzeige;
     let zeit = parseInt(_zeitSec);
     let hrs = 0;

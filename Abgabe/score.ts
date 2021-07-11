@@ -1,8 +1,6 @@
-
-
-let spielen: HTMLElement = document.getElementById("start");
-spielen.addEventListener("click", function(): void {
-    weiterleitungSeite(spielen.id);
+let neuesSpiel: HTMLElement = document.getElementById("start");
+neuesSpiel.addEventListener("click", function(): void {
+    weiterleitungSeite(neuesSpiel.id);
 });
 highscoreTabelle();
 
@@ -11,8 +9,8 @@ let spielerDaten: HighscoreEintrag [] = [];
 async function highscoreTabelle(): Promise<void> {
 
     //console.log(responseText);
-    let scoreString: string = await scoreHolen();
-    spielerDaten = JSON.parse(scoreString);
+    let scoreStringDatenbank: string = await scoreHolen();
+    spielerDaten = JSON.parse(scoreStringDatenbank);
     //console.log(spielerDaten);
 
     spielerDaten = spielerDaten.sort(function(a, b) {
@@ -28,12 +26,12 @@ async function highscoreTabelle(): Promise<void> {
         //console.log(nameEintrag.innerHTML);
 
         let punkte: HTMLElement = document.getElementById("punkte" + i);
-        let anzahl: string = spielerDaten[spielerDaten.length  - i].punkte.toString();
-        punkte.innerHTML = anzahl;
+        let anzahlPunkte: string = spielerDaten[spielerDaten.length  - i].punkte.toString();
+        punkte.innerHTML = anzahlPunkte;
         //console.log(punkte.innerHTML);
        
         let zeit: HTMLElement = document.getElementById("zeit" + i);
-        let zeitTabelle: string = secString(spielerDaten[spielerDaten.length - i].sec.toString());
+        let zeitTabelle: string = zeitString(spielerDaten[spielerDaten.length - i].sec.toString());
         zeit.innerHTML = zeitTabelle;
         //console.log(zeit.innerHTML);
 

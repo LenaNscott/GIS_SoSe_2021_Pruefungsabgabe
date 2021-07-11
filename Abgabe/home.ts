@@ -1,13 +1,13 @@
-let spiel: HTMLElement = document.getElementById("startHome");
+let zumSpiel: HTMLElement = document.getElementById("startHome");
 
 herokuAufwecken();
 
 async function herokuAufwecken(): Promise <void> {
     await bilderUrlHolen();
-    spiel.addEventListener("click", function(): void {
-        weiterleitungSeite(spiel.id);
+    zumSpiel.addEventListener("click", function(): void {
+        weiterleitungSeite(zumSpiel.id);
     });
-    spiel.innerHTML = "zum Spiel";
+    zumSpiel.innerHTML = "zum Spiel";
 }
 
 

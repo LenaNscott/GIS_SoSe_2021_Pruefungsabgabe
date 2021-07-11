@@ -1,6 +1,6 @@
 let anzeigeZeit: HTMLElement = document.getElementById("timerAnzeige");
 let anzeigeScore: HTMLElement = document.getElementById("punkteAnzeige");
-let highscoreEintrag: HTMLElement = document.getElementById("fertig");
+let buttonDatenbankEintrag: HTMLElement = document.getElementById("fertig");
 
 let cookiesSplit: string [] = [];
 //console.log(document.cookie);
@@ -12,7 +12,7 @@ let punkte: number = Math.round(80000 / (klicks + (sek / 3)));
 
 let video: HTMLVideoElement = document.createElement("video");
 video.id = "video";
-video.src = "Medien/NeverGonnaGiveYouUpVideo.mp4";
+video.src = "Medien/video.mp4";
 video.autoplay = true;
 video.playsInline = true;
 video.load();
@@ -20,8 +20,8 @@ document.getElementById("body").appendChild(video);
 video.onended = function() {
     document.getElementById("body").removeChild(video);
     anzeigeScore.innerHTML = punkte.toString();
-    anzeigeZeit.innerHTML = secString(sek.toString());
-    highscoreEintrag.addEventListener("click", datenbankSchreiben);
+    anzeigeZeit.innerHTML = zeitString(sek.toString());
+    buttonDatenbankEintrag.addEventListener("click", datenbankSchreiben);
 };
 
 async function datenbankSchreiben(): Promise <void> {
@@ -29,8 +29,8 @@ async function datenbankSchreiben(): Promise <void> {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     let name: string = query.toString();
 
-    let datenbankEintrag: string[] = ["punkte=" + punkte, "sec=" + sek, name, "klicks=" + klicks];
+    let datenbankEintragDaten: string[] = ["punkte=" + punkte, "sec=" + sek, name, "klicks=" + klicks];
     //console.log(datenbankEintrag);
-    await eintragDatenbank(datenbankEintrag); 
-    weiterleitungSeite(highscoreEintrag.id);
+    await eintragDatenbank(datenbankEintragDaten); 
+    weiterleitungSeite(buttonDatenbankEintrag.id);
 }

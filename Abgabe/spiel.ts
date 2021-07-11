@@ -7,11 +7,11 @@ let spielende: boolean = false;
 let gefundenePaare: number = 0;
 let gemischteKarten: Bild[];
 
-let bild1: HTMLImageElement = document.createElement("img");
-bild1.style.position = "absolute";
+let erstesAngeklicktesBild: HTMLImageElement = document.createElement("img");
+erstesAngeklicktesBild.style.position = "absolute";
 
-let bild2: HTMLImageElement = document.createElement("img");
-bild2.style.position = "absolute";
+let zweitesAngeklicktesBild: HTMLImageElement = document.createElement("img");
+zweitesAngeklicktesBild.style.position = "absolute";
 
 let sec: number = 0;
 let min: number = 0;
@@ -21,7 +21,7 @@ let stoppen: boolean = false;
 let anzahlKlicks: number = 0;
 
 
-let anzeige: HTMLElement = document.getElementById("timer");
+let anzeigeLaufendeZeit: HTMLElement = document.getElementById("timer");
 let start: HTMLElement = document.getElementById("spielstart");
 start.addEventListener("click", function(): void {
     start.parentNode.removeChild(start);
@@ -81,39 +81,39 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
 
         if (karteEins == true) {
             zuletztAngeklicktesBildIndex = neuAngeklicktesBildIndex;
-            bild1.src = i.src;
-            bild1.id = i.id;
-            document.getElementById("body").appendChild(bild1); 
+            erstesAngeklicktesBild.src = i.src;
+            erstesAngeklicktesBild.id = i.id;
+            document.getElementById("body").appendChild(erstesAngeklicktesBild); 
             karteEins = false;
             klickenVerarbeitet = true;
         }
 
         else if (karteEins == false) {
             zuletztAngeklicktesBildIndex = "";
-            bild2.src = i.src;
-            bild2.id = i.id;
-            document.getElementById("body").appendChild(bild2); 
+            zweitesAngeklicktesBild.src = i.src;
+            zweitesAngeklicktesBild.id = i.id;
+            document.getElementById("body").appendChild(zweitesAngeklicktesBild); 
             karteEins = true;
     
-            await Sleep(2000);
+            await sleep(2000);
 
-            if (bild1.src == bild2.src) {
+            if (erstesAngeklicktesBild.src == zweitesAngeklicktesBild.src) {
                 gefundenePaare += 1;
              
-                let idZahleins: string [] = bild1.id.split("d");
+                let idZahleins: string [] = erstesAngeklicktesBild.id.split("d");
                 //console.log(idZahleins);
                 let nr: string = "nr" + idZahleins[1];
                 let img1: HTMLElement = document.getElementById(nr);
                 img1.parentNode.removeChild(img1);
-                let idZahlZwei: string [] = bild2.id.split("d");
+                let idZahlZwei: string [] = zweitesAngeklicktesBild.id.split("d");
                 let nr2: string = "nr" + idZahlZwei[1];
                 let img2: HTMLElement = document.getElementById(nr2);
                 img2.parentNode.removeChild(img2); 
             
             }
 
-            document.getElementById("body").removeChild(bild1);
-            document.getElementById("body").removeChild(bild2);
+            document.getElementById("body").removeChild(erstesAngeklicktesBild);
+            document.getElementById("body").removeChild(zweitesAngeklicktesBild);
 
             klickenVerarbeitet = true; 
         }
@@ -134,8 +134,8 @@ async function spielKarten(_karte: HTMLElement): Promise<void> {
 }
 
 
-function Sleep(milliseconds: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
+function sleep(_milliseconds: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, _milliseconds));
    }
 
 
@@ -156,7 +156,7 @@ function timerLaeuft(): void {
 
 function add(): void {
     timerLaeuft();
-    anzeige.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    anzeigeZeit.textContent = (hrs > 9 ? hrs : "0" + hrs) + ":" + (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
     timer();
 }
 
@@ -165,7 +165,7 @@ function timer(): void {
 }
    
 function timerAufNull(): void {
-    anzeige.textContent = "00:00:00";
+    anzeigeZeit.textContent = "00:00:00";
     sec = 0; 
     min = 0; 
     hrs = 0;

@@ -29,21 +29,21 @@ async function bilderAnzeigen() {
         });
     }
 }
-function auswahlBilder(angeklicktesBild) {
-    if (angeklicktesBild.style.border == "") {
-        angeklicktesBild.style.border = "solid";
-        angeklicktesBild.style.borderColor = "#FF0000";
-        loeschendeBilder.splice(0, 0, angeklicktesBild.title);
+function auswahlBilder(_angeklicktesBild) {
+    if (_angeklicktesBild.style.border == "") {
+        _angeklicktesBild.style.border = "solid";
+        _angeklicktesBild.style.borderColor = "#FF0000";
+        loeschendeBilder.splice(0, 0, _angeklicktesBild.title);
         //loeschendeBilder.splice(0, 0, angeklicktesBild.src);
     }
     else {
-        angeklicktesBild.style.border = "";
-        loeschendeBilder.splice(loeschendeBilder.indexOf(angeklicktesBild.title), 1);
+        _angeklicktesBild.style.border = "";
+        loeschendeBilder.splice(loeschendeBilder.indexOf(_angeklicktesBild.title), 1);
     }
 }
 async function auswahlLoeschen() {
     let loeschendeBilderString = loeschendeBilder.join("&");
-    await BilderLoeschen(loeschendeBilderString);
+    await bilderLoeschen(loeschendeBilderString);
     //console.log(loeschendeBilder);
     let pname = window.location.pathname;
     let geschnittenerPathname = pname.slice(0, pname.lastIndexOf("/"));
