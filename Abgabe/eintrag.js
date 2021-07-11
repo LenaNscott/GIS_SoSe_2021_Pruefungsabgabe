@@ -7,7 +7,7 @@ async function videoAbspielen() {
     video.autoplay = true;
     video.load();
     document.getElementById("body").appendChild(video);
-    await Sleep(9000);
+    await SleepVideo(9000);
     document.getElementById("body").removeChild(video);
 }
 let highscoreEintrag = document.getElementById("fertig");
