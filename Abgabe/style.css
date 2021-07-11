@@ -1234,8 +1234,9 @@ img {
     }
 
     #meme {
-        text-align: center;
+        position: absolute;
         top: 700px;
+        left: 400px;
         height: 300px;
         width: 300px;
     }
@@ -1246,7 +1247,7 @@ img {
         height: 600px;
         width: 600px;
         top: 25px;
-        left: 30px;
+        left: 130px;
     }
     
     #nr1 {
@@ -2280,8 +2281,9 @@ img {
     }
     
     #meme {
-        text-align: center;
+        position: absolute;
         top: 630px;
+        left: 100px;
         height: 200px;
         width: 200px;
     }
@@ -2290,10 +2292,10 @@ img {
     #video {
         position: absolute;
         z-index: 10;
-        height: 300px;
-        width: 300px;
-        top: 40px;
-        left: 20px;
+        height: 150px;
+        width: 150px;
+        top: 60px;
+        left: 10px;
     }
 
     #nr1 {
