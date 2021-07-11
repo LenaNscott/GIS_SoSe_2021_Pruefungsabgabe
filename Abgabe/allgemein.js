@@ -1,7 +1,8 @@
 "use strict";
 let bilderArray;
 let bilderAdminAnzeigen = false;
-let serverBaseUrl = "https://lenasfancyapp.herokuapp.com"; //"http://localhost:8100";
+let serverBaseUrl = "https://lenasfancyapp.herokuapp.com";
+//let serverBaseUrl: string = "http://localhost:8100";
 async function versenden(serverUrl) {
     let response = await fetch(serverUrl);
     //console.log(response);

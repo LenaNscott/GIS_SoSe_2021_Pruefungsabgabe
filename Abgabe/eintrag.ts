@@ -1,3 +1,16 @@
+videoAbspielen();
+
+async function videoAbspielen(): Promise<void> {
+let video: HTMLVideoElement = document.createElement("video");
+video.id = "video";
+video.src = "Medien/NeverGonnaGiveYouUpVideo.mp4";
+video.autoplay = true;
+video.load();
+document.getElementById("body").appendChild(video);
+await Sleep(9000);
+document.getElementById("body").removeChild(video);
+}
+
 let highscoreEintrag: HTMLElement = document.getElementById("fertig");
 highscoreEintrag.addEventListener("click", datenbankSchreiben);
 
@@ -27,4 +40,8 @@ async function datenbankSchreiben(): Promise <void> {
     await eintragDatenbank(datenbankEintrag); 
     weiterleitungSeite(highscoreEintrag.id);
 }
+
+function SleepVideo(milliseconds: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+   }
 

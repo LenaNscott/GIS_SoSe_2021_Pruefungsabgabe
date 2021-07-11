@@ -245,6 +245,23 @@ img {
     text-align: center;
 }
 
+#meme {
+    position: absolute;
+    left: 50px;
+    top: 350px;
+    height: 300px;
+    width: 300px;
+}
+
+#video {
+    position: absolute;
+    z-index: 10;
+    height: 800px;
+    width: 800px;
+    top: 30px;
+    left: 350px;
+}
+
 #nr1 {
     position: absolute;
     border: 10px;
@@ -1214,6 +1231,22 @@ img {
     
     #anzeige {
         text-align: center;
+    }
+
+    #meme {
+        text-align: center;
+        top: 700px;
+        height: 300px;
+        width: 300px;
+    }
+
+    #video {
+        position: absolute;
+        z-index: 10;
+        height: 800px;
+        width: 800px;
+        top: 30px;
+        left: 50px;
     }
     
     #nr1 {
@@ -2242,8 +2275,18 @@ img {
     
     #anzeige {
         text-align: center;
+        height: 100px;
+        width: 100px;
     }
     
+    #meme {
+        text-align: center;
+        top: 630px;
+        height: 200px;
+        width: 200px;
+    }
+
+
     #nr1 {
         position: absolute;
         border: 10px;

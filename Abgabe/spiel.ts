@@ -9,20 +9,10 @@ let gemischteKarten: Bild[];
 
 let bild1: HTMLImageElement = document.createElement("img");
 bild1.style.position = "absolute";
-/*
-bild1.style.height = "300px";
-bild1.style.width = "300px";
-bild1.style.left = "575px";
-bild1.style.top = "275px";
-*/
+
 let bild2: HTMLImageElement = document.createElement("img");
 bild2.style.position = "absolute";
-/*
-bild2.style.height = "300px";
-bild2.style.width = "300px";
-bild2.style.left = "575px";
-bild2.style.top = "275px";
-*/
+
 let sec: number = 0;
 let min: number = 0;
 let hrs: number = 0;

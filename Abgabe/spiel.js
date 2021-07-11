@@ -8,20 +8,8 @@ let gefundenePaare = 0;
 let gemischteKarten;
 let bild1 = document.createElement("img");
 bild1.style.position = "absolute";
-/*
-bild1.style.height = "300px";
-bild1.style.width = "300px";
-bild1.style.left = "575px";
-bild1.style.top = "275px";
-*/
 let bild2 = document.createElement("img");
 bild2.style.position = "absolute";
-/*
-bild2.style.height = "300px";
-bild2.style.width = "300px";
-bild2.style.left = "575px";
-bild2.style.top = "275px";
-*/
 let sec = 0;
 let min = 0;
 let hrs = 0;

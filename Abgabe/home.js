@@ -1,10 +1,11 @@
 "use strict";
+let spiel = document.getElementById("startHome");
+herokuAufwecken();
 async function herokuAufwecken() {
     await bilderUrlHolen();
+    spiel.addEventListener("click", function () {
+        weiterleitungSeite(spiel.id);
+    });
+    spiel.innerHTML = "zum Spiel";
 }
-let spiel = document.getElementById("startHome");
-spiel.addEventListener("click", function () {
-    weiterleitungSeite(spiel.id);
-});
-herokuAufwecken();
 //# sourceMappingURL=home.js.map

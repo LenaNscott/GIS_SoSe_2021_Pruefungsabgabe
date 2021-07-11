@@ -1,4 +1,15 @@
 "use strict";
+videoAbspielen();
+async function videoAbspielen() {
+    let video = document.createElement("video");
+    video.id = "video";
+    video.src = "Medien/NeverGonnaGiveYouUpVideo.mp4";
+    video.autoplay = true;
+    video.load();
+    document.getElementById("body").appendChild(video);
+    await Sleep(9000);
+    document.getElementById("body").removeChild(video);
+}
 let highscoreEintrag = document.getElementById("fertig");
 highscoreEintrag.addEventListener("click", datenbankSchreiben);
 let anzeigeZeit = document.getElementById("timerAnzeige");
@@ -20,5 +31,8 @@ async function datenbankSchreiben() {
     //console.log(datenbankEintrag);
     await eintragDatenbank(datenbankEintrag);
     weiterleitungSeite(highscoreEintrag.id);
+}
+function SleepVideo(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 //# sourceMappingURL=eintrag.js.map
