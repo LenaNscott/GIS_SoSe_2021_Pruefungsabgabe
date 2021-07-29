@@ -30,7 +30,8 @@ async function versenden(_serverUrl: string): Promise<string> {
 async function bildUrlHinzufuegen(): Promise<void> {
     let formData: FormData = new FormData(document.forms[0]); 
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    if (query.toString().length == 0) {
+    console.log(query.toString());
+    if (query.toString() != "url=") {
         let serverUrl: string = serverBaseUrl + "/abschicken";
         await versenden(serverUrl + "?" + query.toString());
         let pname: string = window.location.pathname;

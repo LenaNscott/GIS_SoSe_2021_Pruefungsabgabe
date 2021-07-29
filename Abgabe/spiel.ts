@@ -174,4 +174,3 @@ function reload(): void {
 kartenVerteilen();
 
 
-

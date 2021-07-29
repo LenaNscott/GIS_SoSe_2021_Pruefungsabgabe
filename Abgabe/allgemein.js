@@ -12,7 +12,8 @@ async function versenden(_serverUrl) {
 async function bildUrlHinzufuegen() {
     let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);
-    if (query.toString().length == 0) {
+    console.log(query.toString());
+    if (query.toString() != "url=") {
         let serverUrl = serverBaseUrl + "/abschicken";
         await versenden(serverUrl + "?" + query.toString());
         let pname = window.location.pathname;
